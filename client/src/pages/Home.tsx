@@ -12,7 +12,7 @@ const asset = {
   katering: "/manus-storage/juragankambing-katering_70bb7815.jpg",
   aqiqah: "/manus-storage/juragankambing-aqiqah_6a3e88e0.jpg",
   tumpeng: "/manus-storage/juragankambing-tumpeng_a362c0c5.jpg",
-  mark: "/manus-storage/juragankambing-logo-header-transparent_8860083e.png",
+  mark: "/manus-storage/juragankambing-logo-transparent_af453ca2.png",
 };
 
 const services = [
