@@ -1,5 +1,4 @@
-# Aqiqah process image
+# Five-step order process
 
-- [x] Stage and upload the user-provided process image.
-- [x] Add it to the “Dari cerita acara sampai pesanan tiba” section with accessible alt text.
-- [x] Verify desktop/mobile presentation and save a checkpoint.
+- [x] Replace the process list with the five user-provided steps.
+- [x] Verify the updated section and save a checkpoint.
