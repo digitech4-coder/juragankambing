@@ -1,6 +1,5 @@
-# Transparent logo replacement
+# Clean transparent logo
 
-- [x] Create a transparent-background version of the user-provided logo.
-- [x] Use it only for the header logo, footer logo, and favicon.
-- [x] Preserve all logos embedded in food/menu/package images.
-- [x] Verify desktop/mobile rendering and save a checkpoint.
+- [x] Create a truly transparent logo asset with no visible white or gray box.
+- [x] Replace the shared header/footer/favicon logo reference only.
+- [x] Verify the logo at desktop and mobile sizes, then save a checkpoint.
