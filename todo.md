@@ -1,6 +1,6 @@
-# Aqiqah image alignment
+# Testimonial carousel
 
-- [x] Upload the four user-provided 5:4 package images.
-- [x] Map Hemat, Standar, Super, and Istimewa cards to their matching images.
-- [x] Remove incorrect crop styling and preserve full-image ratio.
-- [x] Verify desktop/mobile rendering and save a checkpoint.
+- [x] Transcribe ten testimonials exactly from the user-provided images.
+- [x] Replace the placeholder testimonial area with three visible testimonial cards.
+- [x] Add carousel controls for the remaining testimonials and responsive behavior.
+- [x] Verify the carousel and save a checkpoint.
