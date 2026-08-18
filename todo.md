@@ -1,5 +1,5 @@
-# Desktop process/testimonial balance
+# Kambing Guling package
 
-- [x] Align the left process column and right testimonial panel to share a common desktop bottom baseline.
-- [x] Adjust image sizing and column structure while preserving mobile stacking.
+- [x] Stage the user-provided Kambing Guling package image as a web asset.
+- [x] Add a responsive framed package section with shadow, supporting copy, and WhatsApp CTA.
 - [x] Verify desktop/mobile presentation and save a checkpoint.
