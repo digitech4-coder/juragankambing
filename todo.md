@@ -1,4 +1,5 @@
-# Five-step order process
+# Process image title removal
 
-- [x] Replace the process list with the five user-provided steps.
-- [x] Verify the updated section and save a checkpoint.
+- [x] Remove the title text from the supplied process image while preserving the five process panels and branding.
+- [x] Replace the website asset with the edited image and keep accessible alt text.
+- [x] Verify desktop symmetry with testimonials and mobile presentation, then save a checkpoint.
