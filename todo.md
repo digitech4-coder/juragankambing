@@ -1,5 +1,5 @@
-# Process image title removal
+# Desktop process/testimonial balance
 
-- [x] Remove the title text from the supplied process image while preserving the five process panels and branding.
-- [x] Replace the website asset with the edited image and keep accessible alt text.
-- [x] Verify desktop symmetry with testimonials and mobile presentation, then save a checkpoint.
+- [x] Align the left process column and right testimonial panel to share a common desktop bottom baseline.
+- [x] Adjust image sizing and column structure while preserving mobile stacking.
+- [x] Verify desktop/mobile presentation and save a checkpoint.
