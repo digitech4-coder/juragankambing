@@ -1,6 +1,5 @@
-# Testimonial carousel
+# Aqiqah process image
 
-- [x] Transcribe ten testimonials exactly from the user-provided images.
-- [x] Replace the placeholder testimonial area with three visible testimonial cards.
-- [x] Add carousel controls for the remaining testimonials and responsive behavior.
-- [x] Verify the carousel and save a checkpoint.
+- [x] Stage and upload the user-provided process image.
+- [x] Add it to the “Dari cerita acara sampai pesanan tiba” section with accessible alt text.
+- [x] Verify desktop/mobile presentation and save a checkpoint.
