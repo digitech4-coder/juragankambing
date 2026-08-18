@@ -1,6 +1,6 @@
-# Aqiqah package split
+# Aqiqah image alignment
 
-- [x] Define four package cards: Hemat, Standar, Super, and Istimewa.
-- [x] Add package-specific prices and package image crops using the supplied price-list asset.
-- [x] Add a WhatsApp CTA to each package card.
-- [x] Verify desktop/mobile layout and save a checkpoint.
+- [x] Upload the four user-provided 5:4 package images.
+- [x] Map Hemat, Standar, Super, and Istimewa cards to their matching images.
+- [x] Remove incorrect crop styling and preserve full-image ratio.
+- [x] Verify desktop/mobile rendering and save a checkpoint.
