@@ -1,8 +1,10 @@
-# Clean transparent logo
+# GitHub Pages deployment
+
+## Pending
+- [ ] Check the GitHub Pages URL and identify why the site is not rendering.
+- [ ] Verify repository build output, base path, asset paths, and Pages configuration.
+- [ ] Apply the required fix and confirm the published URL works.
 
 ## Completed
-- [x] Replace the header, footer, and favicon logo with the newly provided JuraganKambing logo.
-- [x] Remove the white background so the new logo is transparent.
-- [x] Verify the logo at desktop and mobile sizes without changing logos embedded in food or package imagery.
-- [x] Save the completed website checkpoint.
+- [x] Website source is maintained in the JuraganKambing project.
 

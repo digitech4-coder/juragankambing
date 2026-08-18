@@ -7,12 +7,13 @@ const WHATSAPP_NUMBER = "6285211885000";
 const BUSINESS_PHONE = "085211885000";
 const BUSINESS_ADDRESS = "Jl Srikandi 3 Blok DC4 No 16A, Pd. Benda, Kec. Pamulang, Kota Tangerang Selatan, Banten 15418";
 const MAPS_URL = "https://maps.app.goo.gl/H1poDirs6u5gTodx8";
+const publicAsset = (filename: string) => `${import.meta.env.BASE_URL}image/${filename}`;
 const asset = {
-  hero: "/manus-storage/juragankambing-hero_6f4b32de.jpg",
-  katering: "/manus-storage/juragankambing-katering_70bb7815.jpg",
-  aqiqah: "/manus-storage/juragankambing-aqiqah_6a3e88e0.jpg",
-  tumpeng: "/manus-storage/juragankambing-tumpeng_a362c0c5.jpg",
-  mark: "/manus-storage/juragankambing-logo-transparent_af453ca2.png",
+  hero: publicAsset("juragankambing-hero.jpg"),
+  katering: publicAsset("juragankambing-katering.jpg"),
+  aqiqah: publicAsset("juragankambing-aqiqah.jpg"),
+  tumpeng: publicAsset("juragankambing-tumpeng.jpg"),
+  mark: publicAsset("juragankambing-logo-transparent.png"),
 };
 
 const services = [
