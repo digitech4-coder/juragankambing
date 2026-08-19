@@ -1,4 +1,5 @@
 /* Emerald Majlis page: editorial hospitality composition, deep emerald/cream/brass palette, and every conversion path routes to one centralized WhatsApp helper. */
+import { useAuth } from "@/_core/hooks/useAuth";
 import { useState } from "react";
 import { toast } from "sonner";
 import { ChevronDown, ChevronLeft, ChevronRight, Clock3, Flame, Leaf, Menu, MessageCircle, PackageCheck, Phone, ShieldCheck, Sparkles, Truck, X } from "lucide-react";
@@ -7,13 +8,12 @@ const WHATSAPP_NUMBER = "6285211885000";
 const BUSINESS_PHONE = "085211885000";
 const BUSINESS_ADDRESS = "Jl Srikandi 3 Blok DC4 No 16A, Pd. Benda, Kec. Pamulang, Kota Tangerang Selatan, Banten 15418";
 const MAPS_URL = "https://maps.app.goo.gl/H1poDirs6u5gTodx8";
-const publicAsset = (filename: string) => `${import.meta.env.BASE_URL}image/${filename}`;
 const asset = {
-  hero: publicAsset("juragankambing-hero.jpg"),
-  katering: publicAsset("juragankambing-katering.jpg"),
-  aqiqah: publicAsset("juragankambing-aqiqah.jpg"),
-  tumpeng: publicAsset("juragankambing-tumpeng.jpg"),
-  mark: publicAsset("juragankambing-logo-transparent.png"),
+  hero: "/manus-storage/juragankambing-hero_bd742d57.jpg",
+  katering: "/manus-storage/juragankambing-katering_384e549a.jpg",
+  aqiqah: "/manus-storage/juragankambing-aqiqah_f12a21b1.jpg",
+  tumpeng: "/manus-storage/juragankambing-tumpeng_506ff2c0.jpg",
+  mark: "/manus-storage/juragankambing-logo-transparent_59816999.png",
 };
 
 const services = [
@@ -54,6 +54,13 @@ function SectionHeading({ eyebrow, title, body, light = false }: { eyebrow: stri
 }
 
 export default function Home() {
+  // The useAuth hook provides authentication state.
+  // To implement login/logout, call logout(), or start login from an event
+  // handler: onClick={() => startLogin()} (imported from "@/const"). Never call
+  // startLogin() during render (no href={startLogin()}) — it mints a one-time
+  // nonce cookie and must run only at the moment of navigation.
+  let { user, loading, error, isAuthenticated, logout } = useAuth();
+
   const [menuOpen, setMenuOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [submitted, setSubmitted] = useState(false);
