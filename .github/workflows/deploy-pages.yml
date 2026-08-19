@@ -35,6 +35,8 @@ jobs:
           GITHUB_ACTIONS: true
       - name: Copy repository media
         run: cp -R image dist/public/image
+      - name: Preserve custom domain marker
+        run: if [ -f CNAME ]; then cp CNAME dist/public/CNAME; fi
       - name: Add SPA fallback
         run: cp dist/public/index.html dist/public/404.html
       - name: Configure Pages
