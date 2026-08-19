@@ -1,0 +1,3 @@
+# GitHub Pages image repair
+
+The live GitHub Pages site initially rendered the React page but all homepage images referenced unavailable `/manus-storage/...` URLs. The direct GitHub repository image URL was confirmed to serve successfully after deployment. The repository was repaired in commit `12318e8` by converting homepage image references to `image/...` paths, restoring the large image files under the repository `image/` folder, and updating `.github/workflows/deploy-pages.yml` to copy `image/` into the Pages artifact. Workflow run `32201729758` completed successfully. The live URL was reloaded with a cache-busting query and the hero image rendered correctly in the homepage screenshot.

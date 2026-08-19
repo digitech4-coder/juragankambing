@@ -11,3 +11,20 @@
 - [x] Verify TypeScript, Vitest, production build, homepage rendering, and protected storage route.
 - [x] Save a publishable project checkpoint.
 
+
+## GitHub Pages image repair
+- [x] Diagnose missing images on https://digitech4-coder.github.io/juragankambing.
+- [x] Restore self-contained GitHub Pages image assets and correct all repository-relative paths.
+- [x] Rebuild, push, and verify the live GitHub Pages deployment.
+
+## Custom domain repair
+- [x] Diagnose why https://juragankambing.id does not display the website.
+- [x] Verify DNS, HTTPS, and GitHub Pages custom-domain configuration; confirm the Manus domain remains a separate unchanged hosting address and is not part of this GitHub Pages setup.
+- [x] Apply the required fix or provide the exact DNS/CNAME steps.
+- [x] Recheck the custom domain after propagation or deployment changes.
+
+## Image performance optimization
+- [x] Audit all homepage image dimensions, formats, file sizes, and render usage.
+- [x] Create optimized image variants without visible quality loss and update GitHub Pages assets.
+- [x] Add responsive image sizing, lazy loading for below-fold images, and high priority for the hero image.
+- [x] Verify SEO, visual rendering, build health, and performance-related changes before checkpointing.
