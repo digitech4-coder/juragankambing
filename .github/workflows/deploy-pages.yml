@@ -33,6 +33,8 @@ jobs:
         run: pnpm exec vite build
         env:
           GITHUB_ACTIONS: true
+      - name: Copy repository media
+        run: cp -R image dist/public/image
       - name: Add SPA fallback
         run: cp dist/public/index.html dist/public/404.html
       - name: Configure Pages
