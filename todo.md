@@ -28,3 +28,17 @@
 - [x] Create optimized image variants without visible quality loss and update GitHub Pages assets.
 - [x] Add responsive image sizing, lazy loading for below-fold images, and high priority for the hero image.
 - [x] Verify SEO, visual rendering, build health, and performance-related changes before checkpointing.
+
+## Custom-domain image regression
+- [x] Compare image URLs and build artifacts between the working Manus domain and juragankambing.id.
+- [x] Repair GitHub Pages image paths without changing the working Manus presentation.
+- [x] Redeploy and verify all key images on the custom domain.
+
+## Final custom-domain asset verification
+- [x] Explicitly verify the header/footer logo and process infographic on the final custom-domain deployment.
+- [x] Mark the custom-domain verification complete only after those critical assets are confirmed on https://juragankambing.id/.
+
+## Kambing Guling image replacement
+- [x] Add the newly provided Paket Kambing Guling image to managed and GitHub-compatible assets.
+- [x] Replace only the Kambing Guling image reference while preserving content, position, sizing, and layout.
+- [x] Verify the updated image on Manus and juragankambing.id.
