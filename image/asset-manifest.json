@@ -2,16 +2,60 @@
   "generatedFor": "JuraganKambing.id",
   "productionPolicy": "Keep production src values on /manus-storage URLs in Manus deployments.",
   "assets": [
-    { "localFile": "juragankambing-hero.jpg", "productionUrl": "/manus-storage/juragankambing-hero_6f4b32de.jpg", "usage": "Hero utama" },
-    { "localFile": "juragankambing-katering.jpg", "productionUrl": "/manus-storage/juragankambing-katering_70bb7815.jpg", "usage": "Section katering dan nasi box" },
-    { "localFile": "juragankambing-aqiqah.jpg", "productionUrl": "/manus-storage/juragankambing-aqiqah_6a3e88e0.jpg", "usage": "Section aqiqah" },
-    { "localFile": "juragankambing-tumpeng.jpg", "productionUrl": "/manus-storage/juragankambing-tumpeng_a362c0c5.jpg", "usage": "Section tumpeng" },
-    { "localFile": "juragankambing-mark.png", "productionUrl": "/manus-storage/juragankambing-mark_1e6fdb8d.png", "usage": "Logo dan simbol brand" },
-    { "localFile": "juragankambing-paket-hemat.png", "productionUrl": "/manus-storage/juragankambing-paket-hemat_0072c33c.png", "usage": "Kartu Paket Aqiqah Hemat" },
-    { "localFile": "juragankambing-paket-standar.png", "productionUrl": "/manus-storage/juragankambing-paket-standar_b8d9c733.png", "usage": "Kartu Paket Aqiqah Standar" },
-    { "localFile": "juragankambing-paket-super.png", "productionUrl": "/manus-storage/juragankambing-paket-super_0542dbc7.png", "usage": "Kartu Paket Aqiqah Super" },
-    { "localFile": "juragankambing-paket-istimewa.png", "productionUrl": "/manus-storage/juragankambing-paket-istimewa_dde4c53d.png", "usage": "Kartu Paket Aqiqah Istimewa" },
-    { "localFile": "PaketKambingGuling.png", "productionUrl": "/manus-storage/PaketKambingGuling_05f729cd.png", "usage": "Section Paket Kambing Guling" },
-    { "localFile": "proses-aqiqah-tanpa-judul.png", "productionUrl": "/manus-storage/proses-aqiqah-tanpa-judul_54a914e1.png", "usage": "Infografik alur pemesanan" }
+    {
+      "localFile": "juragankambing-hero.jpg",
+      "productionUrl": "/image/juragankambing-hero.webp",
+      "usage": "Hero utama"
+    },
+    {
+      "localFile": "juragankambing-katering.jpg",
+      "productionUrl": "/image/juragankambing-katering.webp",
+      "usage": "Section katering dan nasi box"
+    },
+    {
+      "localFile": "juragankambing-aqiqah.jpg",
+      "productionUrl": "/image/juragankambing-aqiqah.webp",
+      "usage": "Section aqiqah"
+    },
+    {
+      "localFile": "juragankambing-tumpeng.jpg",
+      "productionUrl": "/image/juragankambing-tumpeng.webp",
+      "usage": "Section tumpeng"
+    },
+    {
+      "localFile": "juragankambing-mark.png",
+      "productionUrl": "/image/juragankambing-logo-transparent.webp",
+      "usage": "Logo dan simbol brand"
+    },
+    {
+      "localFile": "juragankambing-paket-hemat.png",
+      "productionUrl": "/image/juragankambing-paket-hemat.webp",
+      "usage": "Kartu Paket Aqiqah Hemat"
+    },
+    {
+      "localFile": "juragankambing-paket-standar.png",
+      "productionUrl": "/image/juragankambing-paket-standar.webp",
+      "usage": "Kartu Paket Aqiqah Standar"
+    },
+    {
+      "localFile": "juragankambing-paket-super.png",
+      "productionUrl": "/image/juragankambing-paket-super.webp",
+      "usage": "Kartu Paket Aqiqah Super"
+    },
+    {
+      "localFile": "juragankambing-paket-istimewa.png",
+      "productionUrl": "/image/juragankambing-paket-istimewa.webp",
+      "usage": "Kartu Paket Aqiqah Istimewa"
+    },
+    {
+      "localFile": "PaketKambingGuling.png",
+      "productionUrl": "/image/PaketKambingGulingJuragan.webp",
+      "usage": "Section Paket Kambing Guling"
+    },
+    {
+      "localFile": "proses-aqiqah-tanpa-judul.png",
+      "productionUrl": "/image/proses-aqiqah-tanpa-judul.webp",
+      "usage": "Infografik alur pemesanan"
+    }
   ]
 }
