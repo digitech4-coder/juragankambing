@@ -59,3 +59,9 @@
 - [x] Tambahkan dan verifikasi cache header produksi untuk fingerprinted bundles and managed storage redirects.
 - [x] Optimalkan pemuatan font agar tidak menghambat render awal.
 - [x] Jalankan test, production build, dan pemeriksaan visual setelah optimasi.
+
+## Audit aksesibilitas
+- [x] Audit semantic landmarks, heading structure, image alternatives, form labels, and interactive controls.
+- [x] Improve keyboard navigation, focus visibility, menu/dialog state, carousel controls, and ARIA semantics.
+- [x] Improve actionable text contrast without changing the Emerald Majlis visual composition.
+- [x] Run accessibility-oriented checks, tests, production build, and visual regression verification.
