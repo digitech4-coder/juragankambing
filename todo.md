@@ -42,3 +42,8 @@
 - [x] Add the newly provided Paket Kambing Guling image to managed and GitHub-compatible assets.
 - [x] Replace only the Kambing Guling image reference while preserving content, position, sizing, and layout.
 - [x] Verify the updated image on Manus and juragankambing.id.
+
+## Custom-domain image regression after Kambing Guling update
+- [x] Diagnose why the custom domain no longer displays all homepage images after the Kambing Guling update.
+- [x] Restore a self-contained GitHub Pages asset map and published artifact without changing content or layout.
+- [x] Verify hero, logo, service, package, process, gallery, and Kambing Guling images on the live custom domain.
