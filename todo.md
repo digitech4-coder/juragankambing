@@ -52,3 +52,10 @@
 - [x] Reproduce missing homepage images on https://juragankam-5f36bibh.manus.space and compare with juragankambing.id.
 - [x] Implement a shared asset strategy that works on both Manus and GitHub Pages without changing the visible content or layout.
 - [x] Verify representative homepage images, tests, and production build on both deployments.
+
+## PageSpeed tahap pertama
+- [x] Sediakan varian hero mobile yang lebih ringan tanpa mengubah komposisi visual.
+- [x] Terapkan pengiriman hero responsif melalui `srcSet`/`sizes` plus a host-aware hero preload.
+- [x] Tambahkan dan verifikasi cache header produksi untuk fingerprinted bundles and managed storage redirects.
+- [x] Optimalkan pemuatan font agar tidak menghambat render awal.
+- [x] Jalankan test, production build, dan pemeriksaan visual setelah optimasi.

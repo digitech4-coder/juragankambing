@@ -12,7 +12,23 @@
     <link rel="icon" type="image/webp" href="%BASE_URL%image/juragankambing-logo-transparent.webp" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <script>
+      (() => {
+        const isManus = location.hostname.endsWith('.manus.space') || location.hostname.endsWith('.manus.computer') || location.hostname === 'localhost';
+        const root = isManus ? '/manus-storage/' : '%BASE_URL%image/';
+        const mobile = `${root}${isManus ? 'juragankambing-hero-mobile_9dea06c1.webp' : 'juragankambing-hero-mobile.webp'}`;
+        const desktop = `${root}${isManus ? 'juragankambing-hero_bd742d57.jpg' : 'juragankambing-hero.webp'}`;
+        const preload = document.createElement('link');
+        preload.rel = 'preload';
+        preload.as = 'image';
+        preload.href = desktop;
+        preload.setAttribute('imagesrcset', `${mobile} 768w, ${desktop} 1600w`);
+        preload.setAttribute('imagesizes', '(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 55vw');
+        document.head.appendChild(preload);
+      })();
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" /></noscript>
   </head>
   <body>
     <div id="root"></div>

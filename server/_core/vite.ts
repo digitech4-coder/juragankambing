@@ -58,7 +58,22 @@ export function serveStatic(app: Express) {
     );
   }
 
-  app.use(express.static(distPath));
+  app.use(
+    express.static(distPath, {
+      setHeaders: (res, filePath) => {
+        const normalizedPath = filePath.replaceAll("\\\\", "/");
+        const isFingerprintAsset = /\/(assets|image)\//.test(normalizedPath);
+        const isFont = /\.(woff2?|ttf|otf)$/i.test(normalizedPath);
+        const isStaticMedia = /\.(webp|avif|png|jpe?g|gif|svg|ico|css|js)$/i.test(normalizedPath);
+
+        if (isFingerprintAsset || isFont) {
+          res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
+        } else if (isStaticMedia) {
+          res.setHeader("Cache-Control", "public, max-age=2592000, stale-while-revalidate=86400");
+        }
+      },
+    })
+  );
 
   // fall through to index.html if the file doesn't exist
   app.use("*", (_req, res) => {
