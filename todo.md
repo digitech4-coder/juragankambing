@@ -49,6 +49,6 @@
 - [x] Verify hero, logo, service, package, process, gallery, and Kambing Guling images on the live custom domain.
 
 ## Manus-domain image repair
-- [ ] Reproduce missing homepage images on https://juragankam-5f36bibh.manus.space and compare with juragankambing.id.
+- [x] Reproduce missing homepage images on https://juragankam-5f36bibh.manus.space and compare with juragankambing.id.
 - [x] Implement a shared asset strategy that works on both Manus and GitHub Pages without changing the visible content or layout.
-- [ ] Verify representative homepage images, tests, and production build on both deployments.
+- [x] Verify representative homepage images, tests, and production build on both deployments.

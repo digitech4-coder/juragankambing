@@ -19,3 +19,11 @@ The live page `https://juragankambing.id/?image-regression=1ae943c` now exposes 
 The direct hero asset URL `https://juragankambing.id/image/juragankambing-hero.webp?image-regression=1ae943c` returned a valid 1600x900 image. The GitHub Pages workflow for commit `1ae943cb78f5a438e3c257cf23e481db0fa7abaf` completed successfully. Source, root artifact, generated bundle, and asset manifest no longer contain `/manus-storage/` references.
 
 The process infographic was independently verified on the latest custom-domain deployment at `https://juragankambing.id/image/proses-aqiqah-tanpa-judul.webp?image-regression=1ae943c-process`. The endpoint returned a valid 1600x1280 image showing all five ordering steps.
+
+Manus-domain repair verification after checkpoint `4d3e1749`: `https://juragankam-5f36bibh.manus.space/?asset-check=4d3e1749` now visibly renders the transparent logo and hero image. The published homepage is no longer requesting the missing `/image/...` paths for the Manus host; managed storage assets are selected by the deployment-aware resolver.
+
+Final cross-deployment verification for checkpoint `4d3e1749`:
+
+- `https://juragankam-5f36bibh.manus.space/?final-asset-check=4d3e1749` visibly rendered the logo and hero image; extracted image references use `/manus-storage/` for logo, hero, all four aqiqah packages, Kambing Guling, tumpeng, gallery, and the five-step process infographic.
+- `https://juragankambing.id/?final-asset-check=4d3e1749` continued to expose the working `/image/` WebP references for logo, hero, packages, Kambing Guling, and process assets.
+- Vitest completed with 3/3 tests passing and `pnpm build` completed successfully after the final host-detection change.
