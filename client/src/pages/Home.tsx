@@ -8,7 +8,8 @@ const WHATSAPP_NUMBER = "6285211885000";
 const BUSINESS_PHONE = "085211885000";
 const BUSINESS_ADDRESS = "Jl Srikandi 3 Blok DC4 No 16A, Pd. Benda, Kec. Pamulang, Kota Tangerang Selatan, Banten 15418";
 const MAPS_URL = "https://maps.app.goo.gl/H1poDirs6u5gTodx8";
-const isManusDeployment = typeof window !== "undefined" && window.location.hostname.endsWith(".manus.space");
+const currentHostname = typeof window !== "undefined" ? window.location.hostname : "";
+const isManusDeployment = currentHostname.endsWith(".manus.space") || currentHostname.endsWith(".manus.computer") || currentHostname === "localhost";
 const asset = isManusDeployment
   ? {
       hero: "/manus-storage/juragankambing-hero_bd742d57.jpg",
