@@ -65,3 +65,10 @@
 - [x] Improve keyboard navigation, focus visibility, menu/dialog state, carousel controls, and ARIA semantics.
 - [x] Improve actionable text contrast without changing the Emerald Majlis visual composition.
 - [x] Run accessibility-oriented checks, tests, production build, and visual regression verification.
+
+## Sinkronisasi brand custom domain
+- [x] Diagnose why the finalized header brand is visible on Manus but stale on juragankambing.id.
+- [x] Synchronize the GitHub Pages/custom-domain artifact to “JURAGANKAMBING.ID” and “TANGERANG SELATAN”.
+- [x] Verify the updated header on both published domains and preserve the existing layout and assets.
+- [x] Re-check https://juragankam-5f36bibh.manus.space and https://juragankambing.id after the GitHub Pages sync, confirming the header shows “JURAGANKAMBING.ID” and “TANGERANG SELATAN” on both domains.
+- [x] Preserve explicit evidence that layout, logo, navigation, CTA, and hero assets remained unchanged on both published domains.

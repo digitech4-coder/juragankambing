@@ -27,3 +27,9 @@ Final cross-deployment verification for checkpoint `4d3e1749`:
 - `https://juragankam-5f36bibh.manus.space/?final-asset-check=4d3e1749` visibly rendered the logo and hero image; extracted image references use `/manus-storage/` for logo, hero, all four aqiqah packages, Kambing Guling, tumpeng, gallery, and the five-step process infographic.
 - `https://juragankambing.id/?final-asset-check=4d3e1749` continued to expose the working `/image/` WebP references for logo, hero, packages, Kambing Guling, and process assets.
 - Vitest completed with 3/3 tests passing and `pnpm build` completed successfully after the final host-detection change.
+
+## Brand synchronization verification — 2026-08-20
+
+After manually triggering GitHub Actions workflow run `32423771502` from `main`, the live custom domain `https://juragankambing.id/?brand-check=32423771502` rendered `JURAGANKAMBING.ID`, `TANGERANG SELATAN`, and `Katering · Aqiqah · Qurban`. The live page also rendered the header logo, navigation, WhatsApp CTA, hero image, package links, contact form, and footer controls.
+
+The live Manus domain `https://juragankam-5f36bibh.manus.space/?brand-sync-check=32423771502` independently rendered the same brand text and hero eyebrow, with the same hero composition and managed-storage imagery. GitHub Pages workflow run `32423771502` completed successfully at `2026-08-20T22:20:33Z`.
