@@ -56,6 +56,21 @@
       "localFile": "proses-aqiqah-tanpa-judul.png",
       "productionUrl": "/image/proses-aqiqah-tanpa-judul.webp",
       "usage": "Infografik alur pemesanan"
+    },
+    {
+      "localFile": "SnackBoxekonomis.png",
+      "productionUrl": "/image/snack-box-ekonomis.webp",
+      "usage": "Kartu Snack Box Ekonomis"
+    },
+    {
+      "localFile": "SnackBoxReguler.png",
+      "productionUrl": "/image/snack-box-reguler.webp",
+      "usage": "Kartu Snack Box Reguler"
+    },
+    {
+      "localFile": "SnackBoxPremium.png",
+      "productionUrl": "/image/snack-box-premium.webp",
+      "usage": "Kartu Snack Box Premium"
     }
   ]
 }

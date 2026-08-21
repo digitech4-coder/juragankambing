@@ -72,3 +72,10 @@
 - [x] Verify the updated header on both published domains and preserve the existing layout and assets.
 - [x] Re-check https://juragankam-5f36bibh.manus.space and https://juragankambing.id after the GitHub Pages sync, confirming the header shows “JURAGANKAMBING.ID” and “TANGERANG SELATAN” on both domains.
 - [x] Preserve explicit evidence that layout, logo, navigation, CTA, and hero assets remained unchanged on both published domains.
+
+## Update foto Snack Box
+- [x] Add the provided Snack Box Ekonomis image to the matching package.
+- [x] Add the provided Snack Box Reguler image to the matching package.
+- [x] Add the provided Snack Box Premium image to the matching package.
+- [x] Preserve existing package layout, CTA behavior, responsive sizing, and accessible alt text.
+- [ ] Verify the three assets on Manus and juragankambing.id after deployment.
