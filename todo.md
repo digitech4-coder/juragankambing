@@ -78,6 +78,11 @@
 - [x] Add the provided Snack Box Reguler image to the matching package.
 - [x] Add the provided Snack Box Premium image to the matching package.
 - [x] Preserve existing package layout, CTA behavior, responsive sizing, and accessible alt text.
-- [ ] Verify the three assets on Manus and juragankambing.id after deployment.
+- [x] Verify the three assets on Manus and juragankambing.id after deployment.
 - [x] Remove the obsolete duplicate text-only Snack Box section so the `#snack-box` anchor opens the image-based cards.
 - [x] Run Vitest, production build, and responsive visual verification after the cleanup.
+
+## Custom-domain Snack Box image regression
+- [x] Diagnose why Snack Box images are visible on Manus but not on juragankambing.id.
+- [x] Synchronize the GitHub Pages asset artifact and redeploy the custom domain without changing layout or content.
+- [x] Verify Ekonomis, Reguler, and Premium images on both public domains.

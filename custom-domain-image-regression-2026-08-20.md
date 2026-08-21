@@ -33,3 +33,9 @@ Final cross-deployment verification for checkpoint `4d3e1749`:
 After manually triggering GitHub Actions workflow run `32423771502` from `main`, the live custom domain `https://juragankambing.id/?brand-check=32423771502` rendered `JURAGANKAMBING.ID`, `TANGERANG SELATAN`, and `Katering · Aqiqah · Qurban`. The live page also rendered the header logo, navigation, WhatsApp CTA, hero image, package links, contact form, and footer controls.
 
 The live Manus domain `https://juragankam-5f36bibh.manus.space/?brand-sync-check=32423771502` independently rendered the same brand text and hero eyebrow, with the same hero composition and managed-storage imagery. GitHub Pages workflow run `32423771502` completed successfully at `2026-08-20T22:20:33Z`.
+
+## Snack Box cross-domain verification after GitHub Pages redeploy — 2026-08-21
+
+After workflow `32536656671`, the custom domain served bundle `/assets/index-DZPu-tny.js`, containing the Snack Box Ekonomis, Reguler, and Premium labels plus `/image/snack-box-ekonomis.webp`, `/image/snack-box-reguler.webp`, and `/image/snack-box-premium.webp`. All three custom-domain assets returned HTTP 200 with `image/webp`.
+
+The Manus domain served bundle `/assets/index-D7KG0TYA.js`, containing the same three package labels plus the managed-storage references for Ekonomis, Reguler, and Premium. All three managed assets returned HTTP 200 with `image/png`. This confirms that the three Snack Box package images are available on both published deployments.
