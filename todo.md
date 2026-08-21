@@ -98,3 +98,12 @@
 - [x] Diagnose why the latest Snack Box images and package-specific WhatsApp CTAs are missing on juragankambing.id.
 - [x] Redeploy the current GitHub Pages artifact with the latest Snack Box images and CTAs.
 - [x] Verify the live custom domain shows all three images and the three package-specific CTA buttons.
+
+## Jam operasional
+- [x] Ubah teks jam operasional pada section kontak menjadi “Buka 24 jam”.
+- [x] Verifikasi tautan kontak, layout, test, build, dan deployment setelah perubahan.
+- [x] Verify WhatsApp and phone contact links remain unchanged and functional after the copy update.
+- [x] Capture both desktop and mobile visual checks for the contact section after the 24-hour copy change.
+- [x] Save/deploy a new checkpoint and verify “Buka 24 jam” on the published domain(s).
+- [ ] Save a new checkpoint after the operating-hours change.
+- [ ] Verify the published domain(s) show “Buka 24 jam” in the contact section after deployment.
