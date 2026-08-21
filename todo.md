@@ -86,3 +86,10 @@
 - [x] Diagnose why Snack Box images are visible on Manus but not on juragankambing.id.
 - [x] Synchronize the GitHub Pages asset artifact and redeploy the custom domain without changing layout or content.
 - [x] Verify Ekonomis, Reguler, and Premium images on both public domains.
+
+## CTA WhatsApp per paket Snack Box
+- [x] Tambahkan tombol CTA WhatsApp pada kartu Snack Box Ekonomis, Reguler, dan Premium.
+- [x] Sertakan nama paket secara otomatis dalam pesan WhatsApp dan accessible label.
+- [x] Verifikasi link CTA, test, build, dan tampilan responsif.
+- [x] Verify each Snack Box CTA uses the correct package-specific WhatsApp message template for Ekonomis, Reguler, and Premium.
+- [x] Confirm the CTA layout at mobile and desktop breakpoints after the update.
