@@ -39,3 +39,9 @@ The live Manus domain `https://juragankam-5f36bibh.manus.space/?brand-sync-check
 After workflow `32536656671`, the custom domain served bundle `/assets/index-DZPu-tny.js`, containing the Snack Box Ekonomis, Reguler, and Premium labels plus `/image/snack-box-ekonomis.webp`, `/image/snack-box-reguler.webp`, and `/image/snack-box-premium.webp`. All three custom-domain assets returned HTTP 200 with `image/webp`.
 
 The Manus domain served bundle `/assets/index-D7KG0TYA.js`, containing the same three package labels plus the managed-storage references for Ekonomis, Reguler, and Premium. All three managed assets returned HTTP 200 with `image/png`. This confirms that the three Snack Box package images are available on both published deployments.
+
+## Latest Snack Box CTA synchronization verification
+
+Source: `https://juragankambing.id/?snack-sync-check=32538241794`
+
+After GitHub Pages workflow `32538241794`, the live custom domain renders the Snack Box section with `/image/snack-box-ekonomis.webp`, `/image/snack-box-reguler.webp`, and `/image/snack-box-premium.webp`. It also renders `PESAN EKONOMIS VIA WHATSAPP`, `PESAN REGULER VIA WHATSAPP`, and `PESAN PREMIUM VIA WHATSAPP`. The finalized header `JURAGANKAMBING.ID` and hero eyebrow `KATERING · AQIQAH · QURBAN` are present as well.

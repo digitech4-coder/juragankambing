@@ -93,3 +93,8 @@
 - [x] Verifikasi link CTA, test, build, dan tampilan responsif.
 - [x] Verify each Snack Box CTA uses the correct package-specific WhatsApp message template for Ekonomis, Reguler, and Premium.
 - [x] Confirm the CTA layout at mobile and desktop breakpoints after the update.
+
+## Sinkronisasi Snack Box custom domain terbaru
+- [x] Diagnose why the latest Snack Box images and package-specific WhatsApp CTAs are missing on juragankambing.id.
+- [x] Redeploy the current GitHub Pages artifact with the latest Snack Box images and CTAs.
+- [x] Verify the live custom domain shows all three images and the three package-specific CTA buttons.
