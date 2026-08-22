@@ -170,3 +170,9 @@
 - [x] Ensure the “Buka 24 Jam” badge is visible in the mobile header.
 - [x] Tune badge sizing and spacing so it does not crowd the logo, menu, or WhatsApp action.
 - [x] Preserve desktop header behavior, run tests/build, verify responsive screenshots, and save a checkpoint.
+
+## Sinkronisasi badge mobile ke domain custom
+- [x] Diagnose why the mobile “Buka 24 Jam” badge is absent on https://juragankambing.id while present on the Manus domain.
+- [x] Compare fresh live HTML and current GitHub Pages source/workflow artifact.
+- [x] Redeploy the current mobile badge artifact to the custom domain without changing the Manus version.
+- [x] Verify both domains after deployment and save a synchronization checkpoint.
