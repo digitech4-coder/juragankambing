@@ -119,3 +119,9 @@
 - [x] Jalankan test, build, pemeriksaan aksesibilitas, dan verifikasi desktop/mobile.
 - [x] Run a focused accessibility verification for the 24-hour header badge and floating WhatsApp control, including accessible names, semantics, focus visibility, and keyboard reachability.
 - [x] Save a checkpoint after the focused accessibility verification is complete.
+
+## Sinkronisasi custom domain terbaru
+- [x] Diagnose why the latest 24-hour service visibility update is not visible on https://juragankambing.id.
+- [x] Compare the latest Manus checkpoint, GitHub Pages artifact, and custom-domain response.
+- [x] Synchronize or redeploy the custom-domain artifact without changing the Manus presentation.
+- [x] Verify the latest header badge and floating WhatsApp label on juragankambing.id, then save a checkpoint.
