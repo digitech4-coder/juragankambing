@@ -214,3 +214,18 @@
 - [x] Persist contact requests securely and provide a manual WhatsApp follow-up link to 085211885000 after successful email delivery, with email-status tracking and failure handling.
 - [x] Add an admin-only request-history dashboard with protected server procedure, useful status/date/contact fields, and responsive empty/loading/error states.
 - [x] Add/update Vitest coverage, run tests and production build, verify desktop/mobile flows, and save a publish checkpoint.
+
+## Admin OAuth digitechsmart4@gmail.com
+- [x] Audit the users schema and OAuth identity mapping without storing the supplied password.
+- [x] Create or repair the users table using the existing schema and promote the authenticated Manus account for digitechsmart4@gmail.com to admin only after identity verification.
+- [ ] Verify protected dashboard access, update tests, run the production build, document the OAuth-only setup, and save a checkpoint.
+
+## Perbaikan redirect login admin
+- [x] Return OAuth login to the protected page that initiated sign-in, especially `/admin/requests`, instead of always landing on `/`.
+- [x] Validate the return path to prevent open redirects and preserve existing OAuth CSRF protections.
+- [ ] Add/update tests, verify the authenticated admin dashboard flow, and save a checkpoint.
+
+## OAuth redirect masih kembali ke homepage
+- [x] Reproduce the deployed login flow and identify whether the callback, OAuth state, or deployment artifact drops the admin return path.
+- [x] Apply a deployment-compatible fix that returns the verified admin account to `/admin/requests` without weakening CSRF or open-redirect protections.
+- [ ] Add regression coverage, verify the live flow with the user session, and save a checkpoint.

@@ -10,6 +10,14 @@ function getQueryParam(req: Request, key: string): string | undefined {
   return typeof value === "string" ? value : undefined;
 }
 
+export function getSafeOAuthReturnPath(returnPath: unknown): string {
+  if (typeof returnPath !== "string") return "/";
+  if (returnPath === "/") return "/";
+  if (!returnPath.startsWith("/") || returnPath.startsWith("//")) return "/";
+  if (returnPath.includes("\\") || /[\r\n]/.test(returnPath)) return "/";
+  return returnPath;
+}
+
 export function registerOAuthRoutes(app: Express) {
   app.get("/api/oauth/callback", async (req: Request, res: Response) => {
     const code = getQueryParam(req, "code");
@@ -56,7 +64,7 @@ export function registerOAuthRoutes(app: Express) {
       const cookieOptions = getSessionCookieOptions(req);
       res.cookie(COOKIE_NAME, sessionToken, { ...cookieOptions, maxAge: ONE_YEAR_MS });
 
-      res.redirect(302, "/");
+      res.redirect(302, getSafeOAuthReturnPath(decodeOAuthState(state).returnPath));
     } catch (error) {
       console.error("[OAuth] Callback failed", error);
       res.status(500).json({ error: "OAuth callback failed" });
