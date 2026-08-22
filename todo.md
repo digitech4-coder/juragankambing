@@ -159,3 +159,9 @@
 - [x] Wire process-image srcSet/sizes or host-aware asset selection for mobile loading.
 - [x] Add a focused max-width 360px typography and spacing treatment for the affected sections.
 - [x] Run tests/build, verify mobile and desktop visuals, and save a checkpoint.
+
+## Lazy-loading galeri dan tombol kembali ke atas
+- [x] Ensure every gallery image uses lazy-loading and async decoding consistently.
+- [x] Ensure testimonial imagery, if present, uses lazy-loading without changing testimonial content or layout.
+- [x] Add an accessible “Kembali ke Atas” button that appears after scrolling on mobile and smoothly returns to the top.
+- [x] Respect reduced motion, validate mobile/desktop behavior, run tests/build, and save a checkpoint.

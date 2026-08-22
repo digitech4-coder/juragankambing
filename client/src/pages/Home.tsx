@@ -1,8 +1,8 @@
 /* Emerald Majlis page: editorial hospitality composition, deep emerald/cream/brass palette, and every conversion path routes to one centralized WhatsApp helper. */
 import { useAuth } from "@/_core/hooks/useAuth";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
-import { ChevronDown, ChevronLeft, ChevronRight, Clock3, Flame, Leaf, Menu, MessageCircle, PackageCheck, Phone, ShieldCheck, Sparkles, Truck, X } from "lucide-react";
+import { ArrowUp, ChevronDown, ChevronLeft, ChevronRight, Clock3, Flame, Leaf, Menu, MessageCircle, PackageCheck, Phone, ShieldCheck, Sparkles, Truck, X } from "lucide-react";
 
 const WHATSAPP_NUMBER = "6285211885000";
 const BUSINESS_PHONE = "085211885000";
@@ -97,6 +97,13 @@ export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [submitted, setSubmitted] = useState(false);
   const [testimonialStart, setTestimonialStart] = useState(0);
+  const [showBackToTop, setShowBackToTop] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setShowBackToTop(window.scrollY > 520);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   const visibleTestimonials = [0, 1, 2].map((offset) => testimonials[(testimonialStart + offset) % testimonials.length]);
   const nav = ["Layanan", "Paket Favorit", "Galeri", "FAQ", "Kontak"];
   const heroMessage = "Assalamualaikum, Juragan Kambing, saya ingin konsultasi layanan untuk acara. Mohon bantu rekomendasi paket dan harganya.";
@@ -155,6 +162,7 @@ export default function Home() {
     </main>
 
     <footer className="dark-footer bg-[#173D31] py-12 text-white"><div className="container grid gap-10 sm:grid-cols-2 lg:grid-cols-4"><div><div className="flex items-center gap-3"><img src={asset.mark} alt="Simbol JuraganKambing.id" className="h-12 w-12 object-contain" width="48" height="48" loading="lazy" decoding="async" /><strong className="text-sm tracking-[.15em]">JURAGANKAMBING.ID</strong></div><p className="mt-5 max-w-xs text-sm leading-6 text-white/60">Katering, Aqiqah & Kambing untuk berbagai kebutuhan acara.</p></div><div><p className="eyebrow mb-4">Layanan</p><div className="space-y-2 text-sm text-white/65">{services.map(s => <a key={s.title} href={s.href} className="block transition hover:text-white">{s.title}</a>)}</div></div><div><p className="eyebrow mb-4">Informasi</p><div className="space-y-2 text-sm text-white/65"><a href="#tentang" className="block">Tentang Kami</a><a href="#galeri" className="block">Galeri</a><a href="#testimoni" className="block">Testimoni</a><a href="#faq" className="block">FAQ</a><a href="#kontak" className="block">Kontak</a></div></div><div><p className="eyebrow mb-4">Kontak</p><div className="space-y-3 text-sm text-white/65"><a href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(heroMessage)}`} target="_blank" rel="noreferrer" className="flex w-full max-w-[250px] items-center justify-between rounded-xl border border-[#D9B66B]/45 bg-white/5 px-4 py-3 font-bold text-white transition hover:-translate-y-0.5 hover:border-[#D9B66B] hover:bg-white/10"><span>WhatsApp</span><span className="text-[#D9B66B]">Chat ↗</span></a><a href={`tel:+${WHATSAPP_NUMBER}`} className="flex w-full max-w-[250px] items-center justify-between rounded-xl border border-white/15 bg-white/5 px-4 py-3 font-bold text-white transition hover:-translate-y-0.5 hover:border-white/35 hover:bg-white/10"><span>Telepon</span><span className="text-[#D9B66B]">{BUSINESS_PHONE}</span></a><div className="max-w-[250px] leading-5"><span className="mb-1 block font-bold text-white">Alamat</span>{BUSINESS_ADDRESS}</div><a href={MAPS_URL} target="_blank" rel="noreferrer" className="inline-flex items-center font-bold text-[#D9B66B] transition hover:text-white">Buka Google Maps ↗</a></div></div></div><div className="container mt-10 border-t border-white/10 pt-6 text-xs text-white/70">© 2026 JuraganKambing.id. All Rights Reserved.</div></footer>
+    {showBackToTop && <button type="button" aria-label="Kembali ke Atas" title="Kembali ke Atas" onClick={() => window.scrollTo({ top: 0, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" })} className="fixed bottom-24 right-4 z-40 grid h-11 w-11 place-items-center rounded-full border border-[#D9B66B] bg-[#FFFCF5] text-[#0E5A4A] shadow-lg transition hover:-translate-y-1 hover:bg-[#F0E9DB] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D9B66B] active:scale-95 md:hidden"><ArrowUp aria-hidden="true" className="h-5 w-5" /></button>}
     <div className="group fixed bottom-5 right-5 z-40 sm:bottom-7 sm:right-7"><span id="whatsapp-tooltip" role="tooltip" className="pointer-events-none absolute right-full top-1/2 mr-3 -translate-y-1/2 whitespace-nowrap rounded-lg bg-[#173D31] px-3 py-2 text-[11px] font-extrabold text-white opacity-0 shadow-lg transition-all duration-200 group-hover:-translate-x-1 group-hover:opacity-100 group-focus-within:-translate-x-1 group-focus-within:opacity-100">Hubungi Kami Sekarang</span><button type="button" aria-label="Chat WhatsApp JuraganKambing.id — layanan 24 jam" aria-describedby="whatsapp-tooltip" onClick={() => wa(heroMessage)} className="flex items-center gap-2 rounded-full bg-[#25D366] px-3 py-3 text-xs font-extrabold text-[#073B25] shadow-xl shadow-[#073B25]/20 transition duration-200 hover:-translate-y-1 hover:bg-[#35df76] hover:shadow-2xl hover:shadow-[#073B25]/30 focus-visible:-translate-y-1 active:scale-95 sm:px-4"><MessageCircle aria-hidden="true" className="h-5 w-5 shrink-0" /><span className="text-left leading-tight"><span className="block">WhatsApp</span><span className="block text-[10px] font-bold opacity-80">Layanan 24 Jam</span></span></button></div>
   </div>;
 }
