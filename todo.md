@@ -118,4 +118,4 @@
 - [x] Pertahankan navigasi, layout responsive, dan target CTA yang sudah ada.
 - [x] Jalankan test, build, pemeriksaan aksesibilitas, dan verifikasi desktop/mobile.
 - [x] Run a focused accessibility verification for the 24-hour header badge and floating WhatsApp control, including accessible names, semantics, focus visibility, and keyboard reachability.
-- [ ] Save a checkpoint after the focused accessibility verification is complete.
+- [x] Save a checkpoint after the focused accessibility verification is complete.
