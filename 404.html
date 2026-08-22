@@ -2,7 +2,7 @@
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0E5A4A" />
     <meta name="description" content="JuraganKambing.id melayani katering, aqiqah, kambing guling, snack box, tumpeng dan qurban di Tangerang Selatan dan sekitarnya. Konsultasi dan pesan via WhatsApp." />
     <meta property="og:title" content="JuraganKambing.id | Katering, Aqiqah & Kambing Tangerang Selatan" />
@@ -12,9 +12,25 @@
     <link rel="icon" type="image/webp" href="/image/juragankambing-logo-transparent.webp" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <script type="module" crossorigin src="/assets/index-CNp--mDM.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CCA9_2zw.css">
+    <script>
+      (() => {
+        const isManus = location.hostname.endsWith('.manus.space') || location.hostname.endsWith('.manus.computer') || location.hostname === 'localhost';
+        const root = isManus ? '/manus-storage/' : '/image/';
+        const mobile = `${root}${isManus ? 'juragankambing-hero-mobile_9dea06c1.webp' : 'juragankambing-hero-mobile.webp'}`;
+        const desktop = `${root}${isManus ? 'juragankambing-hero_bd742d57.jpg' : 'juragankambing-hero.webp'}`;
+        const preload = document.createElement('link');
+        preload.rel = 'preload';
+        preload.as = 'image';
+        preload.href = desktop;
+        preload.setAttribute('imagesrcset', `${mobile} 768w, ${desktop} 1600w`);
+        preload.setAttribute('imagesizes', '(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 55vw');
+        document.head.appendChild(preload);
+      })();
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" /></noscript>
+    <script type="module" crossorigin src="/assets/index-CjB2cz6d.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-Bor0x6aH.css">
     <script src="/__manus__/debug-collector.js" defer></script>
   </head>
   <body>
