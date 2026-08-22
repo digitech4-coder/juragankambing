@@ -165,3 +165,8 @@
 - [x] Ensure testimonial imagery, if present, uses lazy-loading without changing testimonial content or layout.
 - [x] Add an accessible “Kembali ke Atas” button that appears after scrolling on mobile and smoothly returns to the top.
 - [x] Respect reduced motion, validate mobile/desktop behavior, run tests/build, and save a checkpoint.
+
+## Badge 24 jam pada mobile
+- [x] Ensure the “Buka 24 Jam” badge is visible in the mobile header.
+- [x] Tune badge sizing and spacing so it does not crowd the logo, menu, or WhatsApp action.
+- [x] Preserve desktop header behavior, run tests/build, verify responsive screenshots, and save a checkpoint.
