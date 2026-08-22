@@ -111,3 +111,11 @@
 ## Sinkronisasi jam operasional Manus
 - [x] Resolve Manus-domain deployment lag so its live contact section also displays “Buka 24 jam”.
 - [x] Re-verify the updated operating-hours copy and contact links on both public domains after the synchronized refresh.
+
+## Visibilitas layanan 24 jam
+- [x] Tambahkan badge “Buka 24 Jam” yang menarik dan aksesibel pada header.
+- [x] Perbarui tombol WhatsApp melayang dengan keterangan layanan 24 jam.
+- [x] Pertahankan navigasi, layout responsive, dan target CTA yang sudah ada.
+- [x] Jalankan test, build, pemeriksaan aksesibilitas, dan verifikasi desktop/mobile.
+- [x] Run a focused accessibility verification for the 24-hour header badge and floating WhatsApp control, including accessible names, semantics, focus visibility, and keyboard reachability.
+- [ ] Save a checkpoint after the focused accessibility verification is complete.
