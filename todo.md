@@ -127,7 +127,7 @@
 - [x] Verify the latest header badge and floating WhatsApp label on juragankambing.id, then save a checkpoint.
 
 ## Repeated custom-domain stale update
-- [ ] Re-diagnose why the latest update is still not visible on https://juragankambing.id without relying only on browser cache.
-- [ ] Compare uncached custom-domain responses, GitHub Pages workflow output, and current Manus deployment.
-- [ ] Apply a durable synchronization fix or deployment trigger and preserve the current Manus presentation.
-- [ ] Reverify juragankambing.id from a fresh request and save a final checkpoint.
+- [x] Re-diagnose why the latest update is still not visible on https://juragankambing.id without relying only on browser cache.
+- [x] Compare uncached custom-domain responses, GitHub Pages workflow output, and current Manus deployment.
+- [x] Apply a durable synchronization fix or deployment trigger and preserve the current Manus presentation.
+- [x] Reverify juragankambing.id from a fresh request and save a final checkpoint.
