@@ -105,9 +105,9 @@
 - [x] Verify WhatsApp and phone contact links remain unchanged and functional after the copy update.
 - [x] Capture both desktop and mobile visual checks for the contact section after the 24-hour copy change.
 - [x] Save/deploy a new checkpoint and verify “Buka 24 jam” on the published domain(s).
-- [ ] Save a new checkpoint after the operating-hours change.
-- [ ] Verify the published domain(s) show “Buka 24 jam” in the contact section after deployment.
+- [x] Save a new checkpoint after the operating-hours change.
+- [x] Verify the published domain(s) show “Buka 24 jam” in the contact section after deployment.
 
 ## Sinkronisasi jam operasional Manus
-- [ ] Resolve Manus-domain deployment lag so its live contact section also displays “Buka 24 jam”.
-- [ ] Re-verify the updated operating-hours copy and contact links on both public domains after the synchronized refresh.
+- [x] Resolve Manus-domain deployment lag so its live contact section also displays “Buka 24 jam”.
+- [x] Re-verify the updated operating-hours copy and contact links on both public domains after the synchronized refresh.
