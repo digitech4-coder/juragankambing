@@ -201,8 +201,8 @@
 - [x] Set Resend Reply-To to the validated consumer email.
 - [x] Add/update unit tests, run tests/build, verify responsive form layout, and save a checkpoint.
 - [x] Save a new checkpoint after the consumer email and Reply-To form update, then verify the published project state.
-- [ ] Verify the published post-checkpoint state for version 509d841c, including the consumer email field and Reply-To-enabled form behavior.
-- [ ] Capture a post-publish mobile/desktop check confirming the email field is visible, responsive, and aligned with the published form.
+- [x] Verify the published post-checkpoint state for version 509d841c, including the consumer email field and Reply-To-enabled form behavior.
+- [x] Capture a post-publish mobile/desktop check confirming the email field is visible, responsive, and aligned with the published form.
 
 ## Kolom Domisili pada form permintaan
 - [x] Add a required Domisili select field with Ciputat, Pamulang, Pondok Aren, Bintaro, Serpong, BSD, Depok, Bojongsari, Gunung Sindur, DKI Jakarta, and Lainnya.
