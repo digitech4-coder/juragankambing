@@ -142,3 +142,8 @@
 - [x] Verify whether the process section already says “Pesan mudah dalam 5 langkah”.
 - [x] Apply the exact five-step wording manually if the requested visual edit is absent.
 - [x] Run tests/build and save a new checkpoint after verification.
+
+## CTA setelah lima langkah
+- [x] Add a WhatsApp CTA immediately after the five-step ordering list.
+- [x] Preserve accessible labeling, responsive spacing, and the existing consultation message flow.
+- [x] Run tests/build and visual verification, then save a checkpoint.
