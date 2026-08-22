@@ -45,3 +45,10 @@ The Manus domain served bundle `/assets/index-D7KG0TYA.js`, containing the same 
 Source: `https://juragankambing.id/?snack-sync-check=32538241794`
 
 After GitHub Pages workflow `32538241794`, the live custom domain renders the Snack Box section with `/image/snack-box-ekonomis.webp`, `/image/snack-box-reguler.webp`, and `/image/snack-box-premium.webp`. It also renders `PESAN EKONOMIS VIA WHATSAPP`, `PESAN REGULER VIA WHATSAPP`, and `PESAN PREMIUM VIA WHATSAPP`. The finalized header `JURAGANKAMBING.ID` and hero eyebrow `KATERING · AQIQAH · QURBAN` are present as well.
+
+## Operating-hours verification after checkpoint 23aacfe5
+- Custom domain checked: `https://juragankambing.id/?hours-check=23aacfe5`.
+- Live extracted content confirms: **Buka 24 jam**.
+- Manus domain checked: `https://juragankam-5f36bibh.manus.space/?hours-check=23aacfe5`.
+- Manus live content still exposed the older “Jam operasional dikonfirmasi via WhatsApp” text during this browser check; custom domain already showed the requested 24-hour copy.
+- Contact evidence remained present on Manus: WhatsApp 085211885000 and Telepon 085211885000.

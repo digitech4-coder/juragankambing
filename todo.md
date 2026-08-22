@@ -107,3 +107,7 @@
 - [x] Save/deploy a new checkpoint and verify “Buka 24 jam” on the published domain(s).
 - [ ] Save a new checkpoint after the operating-hours change.
 - [ ] Verify the published domain(s) show “Buka 24 jam” in the contact section after deployment.
+
+## Sinkronisasi jam operasional Manus
+- [ ] Resolve Manus-domain deployment lag so its live contact section also displays “Buka 24 jam”.
+- [ ] Re-verify the updated operating-hours copy and contact links on both public domains after the synchronized refresh.
