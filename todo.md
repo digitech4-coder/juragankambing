@@ -176,3 +176,8 @@
 - [x] Compare fresh live HTML and current GitHub Pages source/workflow artifact.
 - [x] Redeploy the current mobile badge artifact to the custom domain without changing the Manus version.
 - [x] Verify both domains after deployment and save a synchronization checkpoint.
+
+## Pulse badge Buka 24 Jam
+- [x] Add a subtle pulse animation to the “Buka 24 Jam” badge.
+- [x] Preserve badge readability and avoid distracting motion on mobile and desktop.
+- [x] Disable non-essential pulse motion for prefers-reduced-motion users, then run tests/build, verify visuals, and save a checkpoint.

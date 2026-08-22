@@ -110,3 +110,22 @@
   .process-story-section #testimoni-list { margin-top: 1.5rem; }
   .process-story-section #testimoni-list article { padding: 1rem; }
 }
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .live-hours-badge {
+    animation: liveHoursPulse 3.2s ease-in-out infinite;
+    will-change: transform, box-shadow;
+  }
+}
+
+@keyframes liveHoursPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 1px 2px rgba(122, 90, 32, .08), 0 0 0 0 rgba(37, 166, 111, 0);
+  }
+  50% {
+    transform: scale(1.025);
+    box-shadow: 0 3px 8px rgba(122, 90, 32, .12), 0 0 0 4px rgba(37, 166, 111, .08);
+  }
+}
