@@ -187,3 +187,10 @@
 - [x] Compare fresh mobile-specific responses and bundle markers between the custom and Manus domains.
 - [x] Redeploy or repair the custom-domain artifact so mobile receives the latest version.
 - [x] Verify mobile parity on both domains and save a checkpoint.
+
+## Integrasi Resend untuk form permintaan
+- [x] Configure Resend API key as a server-side secret only.
+- [x] Send request-form submissions from noreply@juragankambing.id to digitechsmart4@gmail.com.
+- [x] Add validated backend submission handling with success and error feedback in the form.
+- [x] Use noreply@juragankambing.id as the verified sender; document that Reply-To is intentionally omitted because the form collects WhatsApp, not a consumer email address.
+- [x] Add tests for validation and email request construction, then save a checkpoint.

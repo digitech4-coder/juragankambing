@@ -1,5 +1,7 @@
 import { z } from "zod";
 import { COOKIE_NAME } from "@shared/const";
+import { ENV } from "./_core/env";
+import { contactRequestInput, sendContactRequest } from "./contact";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { adminProcedure, publicProcedure, router } from "./_core/trpc";
@@ -17,6 +19,14 @@ export const appRouter = router({
       ctx.res.clearCookie(COOKIE_NAME, { ...cookieOptions, maxAge: -1 });
       return { success: true } as const;
     }),
+  }),
+  contact: router({
+    sendRequest: publicProcedure
+      .input(contactRequestInput)
+      .mutation(async ({ input }) => {
+        if (input.website) return { accepted: true as const };
+        return sendContactRequest(input, ENV.resendApiKey);
+      }),
   }),
   fileStorage: router({
     list: adminProcedure.query(() => listStoredAssets()),
