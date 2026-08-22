@@ -153,3 +153,9 @@
 - [x] Make the five-step process CTA and process image fit the mobile content width symmetrically.
 - [x] Make the customer-story heading, copy, controls, and testimonial cards fit without right-side clipping.
 - [x] Preserve desktop composition, run tests/build, verify mobile/desktop screenshots, and save a checkpoint.
+
+## Optimasi gambar proses dan breakpoint 360px
+- [x] Create a lighter responsive process-image variant while preserving visual sharpness and aspect ratio.
+- [x] Wire process-image srcSet/sizes or host-aware asset selection for mobile loading.
+- [x] Add a focused max-width 360px typography and spacing treatment for the affected sections.
+- [x] Run tests/build, verify mobile and desktop visuals, and save a checkpoint.

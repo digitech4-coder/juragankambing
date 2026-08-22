@@ -93,3 +93,20 @@
   @media (prefers-reduced-motion: reduce) { .page-shell, .page-loading-indicator, .hero-image { animation: none !important; } }
   @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
 }
+
+
+@media (max-width: 360px) {
+  .container { padding-inline: 1rem; }
+  #qurban h2 { font-size: 2.25rem; line-height: .98; }
+  #qurban .grid > div { padding: .8rem; }
+  #qurban .grid { gap: .5rem; }
+  .process-story-section { padding-block: 3.5rem; }
+  .process-story-section .eyebrow { margin-bottom: .75rem; letter-spacing: .16em; }
+  .process-story-section .display-serif { font-size: 2rem; line-height: 1; }
+  .process-story-section .space-y-5 { margin-top: 1.5rem; row-gap: 1rem; }
+  .process-story-section .space-y-5 > div { gap: .7rem; }
+  .process-story-section .space-y-5 strong { font-size: .8125rem; line-height: 1.35; }
+  .process-story-section #testimoni { padding: 1rem; }
+  .process-story-section #testimoni-list { margin-top: 1.5rem; }
+  .process-story-section #testimoni-list article { padding: 1rem; }
+}
