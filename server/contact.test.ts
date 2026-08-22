@@ -9,6 +9,7 @@ describe("contact request email", () => {
   it("accepts the public form fields and builds the verified sender payload", () => {
     const input = contactRequestInput.parse({
       name: "Budi Santoso",
+      email: "budi@example.com",
       whatsapp: "081234567890",
       service: "Katering",
       guests: "100 orang",
@@ -19,6 +20,7 @@ describe("contact request email", () => {
 
     expect(email.from).toBe("JuraganKambing.id <noreply@juragankambing.id>");
     expect(email.to).toEqual(["digitechsmart4@gmail.com"]);
+    expect(email.reply_to).toEqual(["budi@example.com"]);
     expect(email.subject).toContain("Katering");
     expect(email.text).toContain("081234567890");
     expect(email.html).toContain("20 September");
@@ -27,6 +29,7 @@ describe("contact request email", () => {
   it("escapes untrusted form content in the HTML body", () => {
     const input = contactRequestInput.parse({
       name: "<script>alert(1)</script>",
+      email: "budi@example.com",
       whatsapp: "081234567890",
       service: "Qurban",
       message: "<b>Mohon info</b>",
@@ -45,6 +48,7 @@ describe("contact request email", () => {
 
     await sendContactRequest(contactRequestInput.parse({
       name: "Budi Santoso",
+      email: "budi@example.com",
       whatsapp: "081234567890",
       service: "Katering",
       message: "Mohon dikirimkan pilihan paket.",
@@ -58,12 +62,14 @@ describe("contact request email", () => {
     expect(JSON.parse(String(request.body))).toMatchObject({
       from: "JuraganKambing.id <noreply@juragankambing.id>",
       to: ["digitechsmart4@gmail.com"],
+      reply_to: ["budi@example.com"],
     });
   });
 
   it("rejects an incomplete name or WhatsApp number", () => {
     expect(() => contactRequestInput.parse({
       name: "A",
+      email: "not-an-email",
       whatsapp: "0812",
       service: "Aqiqah",
     })).toThrow();

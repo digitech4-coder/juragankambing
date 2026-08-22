@@ -194,3 +194,10 @@
 - [x] Add validated backend submission handling with success and error feedback in the form.
 - [x] Use noreply@juragankambing.id as the verified sender; document that Reply-To is intentionally omitted because the form collects WhatsApp, not a consumer email address.
 - [x] Add tests for validation and email request construction, then save a checkpoint.
+
+## Email konsumen dan Reply-To
+- [x] Add a required consumer email field to the request form with accessible label and mobile-safe layout.
+- [x] Validate the email on the backend and include it in the request email details.
+- [x] Set Resend Reply-To to the validated consumer email.
+- [x] Add/update unit tests, run tests/build, verify responsive form layout, and save a checkpoint.
+- [ ] Save a new checkpoint after the consumer email and Reply-To form update, then verify the published project state.

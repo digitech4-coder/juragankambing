@@ -2,6 +2,7 @@ import { z } from "zod";
 
 export const contactRequestInput = z.object({
   name: z.string().trim().min(2, "Nama minimal 2 karakter").max(100, "Nama terlalu panjang"),
+  email: z.string().trim().email("Email belum valid").max(254, "Email terlalu panjang"),
   whatsapp: z.string().trim().min(6, "Nomor WhatsApp belum lengkap").max(30, "Nomor WhatsApp terlalu panjang"),
   service: z.enum(["Katering", "Aqiqah", "Kambing Guling", "Snack Box", "Tumpeng", "Qurban"]),
   guests: z.string().trim().max(80, "Jumlah porsi/tamu terlalu panjang").optional().default(""),
@@ -30,6 +31,7 @@ export function buildContactEmail(input: ContactRequest) {
     "Permintaan konsultasi baru dari JuraganKambing.id",
     "",
     `Nama: ${input.name}`,
+    `Email: ${input.email}`,
     `Nomor WhatsApp: ${input.whatsapp}`,
     `Jenis layanan: ${input.service}`,
     `Jumlah porsi/tamu: ${input.guests || "Belum diisi"}`,
@@ -39,6 +41,7 @@ export function buildContactEmail(input: ContactRequest) {
     <div style="font-family:Arial,sans-serif;line-height:1.6;color:#173D31">
       <h2>Permintaan konsultasi baru dari JuraganKambing.id</h2>
       <p><strong>Nama:</strong> ${escapeHtml(input.name)}</p>
+      <p><strong>Email:</strong> ${escapeHtml(input.email)}</p>
       <p><strong>Nomor WhatsApp:</strong> ${escapeHtml(input.whatsapp)}</p>
       <p><strong>Jenis layanan:</strong> ${escapeHtml(input.service)}</p>
       <p><strong>Jumlah porsi/tamu:</strong> ${escapeHtml(input.guests || "Belum diisi")}</p>
@@ -46,7 +49,7 @@ export function buildContactEmail(input: ContactRequest) {
     </div>
   `;
 
-  return { from: FROM_EMAIL, to: [TO_EMAIL], subject, text, html };
+  return { from: FROM_EMAIL, to: [TO_EMAIL], reply_to: [input.email], subject, text, html };
 }
 
 export async function sendContactRequest(input: ContactRequest, apiKey: string) {
