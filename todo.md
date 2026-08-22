@@ -137,3 +137,8 @@
 - [x] Add hover treatment and tooltip text “Hubungi Kami Sekarang” to the floating WhatsApp control.
 - [x] Respect prefers-reduced-motion and preserve accessible names, focus states, and touch usability.
 - [x] Run tests/build and desktop/mobile visual verification, then save a checkpoint.
+
+## Verifikasi edit teks visual
+- [x] Verify whether the process section already says “Pesan mudah dalam 5 langkah”.
+- [x] Apply the exact five-step wording manually if the requested visual edit is absent.
+- [x] Run tests/build and save a new checkpoint after verification.
