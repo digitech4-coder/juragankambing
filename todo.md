@@ -208,3 +208,9 @@
 - [x] Add a required Domisili select field with Ciputat, Pamulang, Pondok Aren, Bintaro, Serpong, BSD, Depok, Bojongsari, Gunung Sindur, DKI Jakarta, and Lainnya.
 - [x] Validate the selected Domisili on the backend and include it in the Resend email details.
 - [x] Preserve accessible labeling and responsive form layout, update tests, run build, and save a checkpoint.
+
+## Pengembangan lanjutan: ringkasan, WhatsApp, dan dashboard admin
+- [x] Add a pre-submit request summary step with edit and confirm actions, preserving accessible responsive behavior.
+- [x] Persist contact requests securely and provide a manual WhatsApp follow-up link to 085211885000 after successful email delivery, with email-status tracking and failure handling.
+- [x] Add an admin-only request-history dashboard with protected server procedure, useful status/date/contact fields, and responsive empty/loading/error states.
+- [x] Add/update Vitest coverage, run tests and production build, verify desktop/mobile flows, and save a publish checkpoint.

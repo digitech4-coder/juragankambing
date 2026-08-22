@@ -7,6 +7,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import FileStorage from "./pages/FileStorage";
+import AdminRequests from "./pages/AdminRequests";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -16,6 +17,7 @@ function Router() {
       <Route path="/juragankambing" component={Home} />
       <Route path="/juragankambing/" component={Home} />
       <Route path="/storage" component={FileStorage} />
+      <Route path="/admin/requests" component={AdminRequests} />
       <Route path="/404" component={NotFound} />
       <Route component={NotFound} />
     </Switch>

@@ -1,5 +1,6 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { buildContactEmail, contactRequestInput, sendContactRequest } from "./contact";
+import { BUSINESS_WHATSAPP_NUMBER, buildContactWhatsAppMessage } from "@shared/contact";
 
 describe("contact request email", () => {
   afterEach(() => {
@@ -89,5 +90,22 @@ describe("contact request email", () => {
       service: "Aqiqah",
       domisili: "Lainnya",
     })).toThrow();
+  });
+
+  it("builds a complete manual WhatsApp follow-up for the business number", () => {
+    const message = buildContactWhatsAppMessage({
+      name: "Budi Santoso",
+      email: "budi@example.com",
+      whatsapp: "081234567890",
+      service: "Aqiqah",
+      domisili: "Pamulang",
+      guests: "100 orang",
+      message: "Mohon jadwal pengantaran.",
+    });
+
+    expect(BUSINESS_WHATSAPP_NUMBER).toBe("6285211885000");
+    expect(message).toContain("Kami menerima permintaan konsultasi dari Budi Santoso.");
+    expect(message).toContain("Domisili: Pamulang");
+    expect(message).toContain("Mohon jadwal pengantaran.");
   });
 });

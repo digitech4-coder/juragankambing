@@ -38,3 +38,21 @@ export const storedAssets = mysqlTable("storedAssets", {
 
 export type StoredAsset = typeof storedAssets.$inferSelect;
 export type InsertStoredAsset = typeof storedAssets.$inferInsert;
+
+export const contactRequests = mysqlTable("contactRequests", {
+  id: int("id").autoincrement().primaryKey(),
+  name: varchar("name", { length: 100 }).notNull(),
+  email: varchar("email", { length: 320 }).notNull(),
+  whatsapp: varchar("whatsapp", { length: 30 }).notNull(),
+  service: varchar("service", { length: 40 }).notNull(),
+  domisili: varchar("domisili", { length: 40 }).notNull(),
+  guests: varchar("guests", { length: 80 }).notNull().default(""),
+  message: text("message").notNull(),
+  emailStatus: mysqlEnum("emailStatus", ["pending", "sent", "failed"]).notNull().default("pending"),
+  emailSentAt: timestamp("emailSentAt"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type ContactRequestRecord = typeof contactRequests.$inferSelect;
+export type InsertContactRequest = typeof contactRequests.$inferInsert;

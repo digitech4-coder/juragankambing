@@ -1,6 +1,6 @@
-import { eq } from "drizzle-orm";
+import { desc, eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertStoredAsset, InsertUser, storedAssets, users } from "../drizzle/schema";
+import { ContactRequestRecord, InsertContactRequest, InsertStoredAsset, InsertUser, contactRequests, storedAssets, users } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -100,4 +100,32 @@ export async function listStoredAssets() {
   const db = await getDb();
   if (!db) return [];
   return db.select().from(storedAssets).orderBy(storedAssets.createdAt);
+}
+
+export async function createContactRequest(request: InsertContactRequest): Promise<ContactRequestRecord> {
+  const db = await getDb();
+  if (!db) throw new Error("Database is not available");
+  const result = await db.insert(contactRequests).values(request);
+  return {
+    id: Number(result[0].insertId),
+    ...request,
+    emailStatus: request.emailStatus ?? "pending",
+    createdAt: request.createdAt ?? new Date(),
+    updatedAt: request.updatedAt ?? new Date(),
+  } as ContactRequestRecord;
+}
+
+export async function updateContactRequestEmailStatus(id: number, emailStatus: "sent" | "failed") {
+  const db = await getDb();
+  if (!db) throw new Error("Database is not available");
+  await db.update(contactRequests).set({
+    emailStatus,
+    emailSentAt: emailStatus === "sent" ? new Date() : null,
+  }).where(eq(contactRequests.id, id));
+}
+
+export async function listContactRequests() {
+  const db = await getDb();
+  if (!db) return [];
+  return db.select().from(contactRequests).orderBy(desc(contactRequests.createdAt)).limit(200);
 }

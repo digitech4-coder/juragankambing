@@ -5,7 +5,7 @@ import { contactRequestInput, sendContactRequest } from "./contact";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { adminProcedure, publicProcedure, router } from "./_core/trpc";
-import { createStoredAsset, listStoredAssets } from "./db";
+import { createContactRequest, createStoredAsset, listContactRequests, listStoredAssets, updateContactRequestEmailStatus } from "./db";
 import { storagePut } from "./storage";
 
 const MAX_UPLOAD_BYTES = 8 * 1024 * 1024;
@@ -25,8 +25,31 @@ export const appRouter = router({
       .input(contactRequestInput)
       .mutation(async ({ input }) => {
         if (input.website) return { accepted: true as const };
-        return sendContactRequest(input, ENV.resendApiKey);
+        const record = await createContactRequest({
+          name: input.name,
+          email: input.email,
+          whatsapp: input.whatsapp,
+          service: input.service,
+          domisili: input.domisili,
+          guests: input.guests ?? "",
+          message: input.message ?? "",
+          emailStatus: "pending",
+        });
+
+        try {
+          await sendContactRequest(input, ENV.resendApiKey);
+          await updateContactRequestEmailStatus(record.id, "sent");
+          return { accepted: true as const, requestId: record.id };
+        } catch (error) {
+          try {
+            await updateContactRequestEmailStatus(record.id, "failed");
+          } catch (statusError) {
+            console.error("Failed to update contact request email status", statusError);
+          }
+          throw error;
+        }
       }),
+    history: adminProcedure.query(() => listContactRequests()),
   }),
   fileStorage: router({
     list: adminProcedure.query(() => listStoredAssets()),
