@@ -131,3 +131,9 @@
 - [x] Compare uncached custom-domain responses, GitHub Pages workflow output, and current Manus deployment.
 - [x] Apply a durable synchronization fix or deployment trigger and preserve the current Manus presentation.
 - [x] Reverify juragankambing.id from a fresh request and save a final checkpoint.
+
+## Loading dan interaksi WhatsApp
+- [x] Add a lightweight, polished first-load transition without blocking page interaction or harming mobile performance.
+- [x] Add hover treatment and tooltip text “Hubungi Kami Sekarang” to the floating WhatsApp control.
+- [x] Respect prefers-reduced-motion and preserve accessible names, focus states, and touch usability.
+- [x] Run tests/build and desktop/mobile visual verification, then save a checkpoint.
