@@ -181,3 +181,9 @@
 - [x] Add a subtle pulse animation to the “Buka 24 Jam” badge.
 - [x] Preserve badge readability and avoid distracting motion on mobile and desktop.
 - [x] Disable non-essential pulse motion for prefers-reduced-motion users, then run tests/build, verify visuals, and save a checkpoint.
+
+## Sinkronisasi versi mobile terbaru
+- [x] Diagnose why the latest mobile update is not visible on https://juragankambing.id.
+- [x] Compare fresh mobile-specific responses and bundle markers between the custom and Manus domains.
+- [x] Redeploy or repair the custom-domain artifact so mobile receives the latest version.
+- [x] Verify mobile parity on both domains and save a checkpoint.
