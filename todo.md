@@ -147,3 +147,9 @@
 - [x] Add a WhatsApp CTA immediately after the five-step ordering list.
 - [x] Preserve accessible labeling, responsive spacing, and the existing consultation message flow.
 - [x] Run tests/build and visual verification, then save a checkpoint.
+
+## Perbaikan simetri mobile tiga section
+- [x] Fix horizontal overflow and clipped text in the Qurban section on narrow screens.
+- [x] Make the five-step process CTA and process image fit the mobile content width symmetrically.
+- [x] Make the customer-story heading, copy, controls, and testimonial cards fit without right-side clipping.
+- [x] Preserve desktop composition, run tests/build, verify mobile/desktop screenshots, and save a checkpoint.
