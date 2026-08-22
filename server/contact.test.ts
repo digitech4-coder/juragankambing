@@ -12,6 +12,7 @@ describe("contact request email", () => {
       email: "budi@example.com",
       whatsapp: "081234567890",
       service: "Katering",
+      domisili: "Pamulang",
       guests: "100 orang",
       message: "Acara pada 20 September di Pamulang.",
     });
@@ -23,6 +24,8 @@ describe("contact request email", () => {
     expect(email.reply_to).toEqual(["budi@example.com"]);
     expect(email.subject).toContain("Katering");
     expect(email.text).toContain("081234567890");
+    expect(email.text).toContain("Domisili: Pamulang");
+    expect(email.html).toContain("Domisili:</strong> Pamulang");
     expect(email.html).toContain("20 September");
   });
 
@@ -32,6 +35,7 @@ describe("contact request email", () => {
       email: "budi@example.com",
       whatsapp: "081234567890",
       service: "Qurban",
+      domisili: "Ciputat",
       message: "<b>Mohon info</b>",
     });
 
@@ -51,6 +55,7 @@ describe("contact request email", () => {
       email: "budi@example.com",
       whatsapp: "081234567890",
       service: "Katering",
+      domisili: "BSD",
       message: "Mohon dikirimkan pilihan paket.",
     }), "re_test_key");
 
@@ -66,12 +71,23 @@ describe("contact request email", () => {
     });
   });
 
+  it("rejects an unknown Domisili", () => {
+    expect(() => contactRequestInput.parse({
+      name: "Budi Santoso",
+      email: "budi@example.com",
+      whatsapp: "081234567890",
+      service: "Aqiqah",
+      domisili: "Kota Fiktif",
+    })).toThrow();
+  });
+
   it("rejects an incomplete name or WhatsApp number", () => {
     expect(() => contactRequestInput.parse({
       name: "A",
       email: "not-an-email",
       whatsapp: "0812",
       service: "Aqiqah",
+      domisili: "Lainnya",
     })).toThrow();
   });
 });

@@ -5,6 +5,7 @@ export const contactRequestInput = z.object({
   email: z.string().trim().email("Email belum valid").max(254, "Email terlalu panjang"),
   whatsapp: z.string().trim().min(6, "Nomor WhatsApp belum lengkap").max(30, "Nomor WhatsApp terlalu panjang"),
   service: z.enum(["Katering", "Aqiqah", "Kambing Guling", "Snack Box", "Tumpeng", "Qurban"]),
+  domisili: z.enum(["Ciputat", "Pamulang", "Pondok Aren", "Bintaro", "Serpong", "BSD", "Depok", "Bojongsari", "Gunung Sindur", "DKI Jakarta", "Lainnya"]),
   guests: z.string().trim().max(80, "Jumlah porsi/tamu terlalu panjang").optional().default(""),
   message: z.string().trim().max(2000, "Pesan terlalu panjang").optional().default(""),
   website: z.string().max(120).optional().default(""),
@@ -34,6 +35,7 @@ export function buildContactEmail(input: ContactRequest) {
     `Email: ${input.email}`,
     `Nomor WhatsApp: ${input.whatsapp}`,
     `Jenis layanan: ${input.service}`,
+    `Domisili: ${input.domisili}`,
     `Jumlah porsi/tamu: ${input.guests || "Belum diisi"}`,
     `Pesan/kebutuhan: ${input.message || "Belum diisi"}`,
   ].join("\n");
@@ -44,6 +46,7 @@ export function buildContactEmail(input: ContactRequest) {
       <p><strong>Email:</strong> ${escapeHtml(input.email)}</p>
       <p><strong>Nomor WhatsApp:</strong> ${escapeHtml(input.whatsapp)}</p>
       <p><strong>Jenis layanan:</strong> ${escapeHtml(input.service)}</p>
+      <p><strong>Domisili:</strong> ${escapeHtml(input.domisili)}</p>
       <p><strong>Jumlah porsi/tamu:</strong> ${escapeHtml(input.guests || "Belum diisi")}</p>
       <p><strong>Pesan/kebutuhan:</strong><br />${escapeHtml(input.message || "Belum diisi").replace(/\n/g, "<br />")}</p>
     </div>
