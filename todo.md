@@ -261,3 +261,10 @@
 - [x] Tambahkan ekspor CSV dari hasil filter dengan escaping aman untuk data pelanggan.
 - [x] Tambahkan Vitest untuk filter, status, otorisasi admin, dan format CSV; jalankan build serta verifikasi responsif.
 - [x] Simpan checkpoint setelah seluruh fitur terverifikasi.
+
+
+## Sinkronisasi update terbaru ke domain custom
+- [ ] Audit mengapa `https://juragankambing.id` belum menampilkan update terbaru dari versi Manus.
+- [ ] Bandingkan artefak GitHub Pages, workflow deployment, dan respons fresh dari domain custom.
+- [ ] Sinkronkan/redeploy artefak terbaru tanpa mengubah versi Manus yang sudah benar.
+- [ ] Verifikasi marker fitur terbaru pada domain custom dari cache-busting request dan simpan checkpoint.
