@@ -253,3 +253,11 @@
 - [x] Reproduce the confirmed submission failure and identify that the custom-domain static site was sending tRPC calls to GitHub Pages instead of the full-stack backend.
 - [x] Repair the request flow by routing custom-domain tRPC calls to the full-stack backend with allowlisted credential-safe CORS, preserving durable status handling and actionable user feedback.
 - [x] Add regression coverage, verify a real successful submission with authorization, publish, and document the result. The repaired custom-domain flow was confirmed successful by the user.
+
+## Filter, ekspor, dan status follow-up dashboard
+- [x] Tambahkan status follow-up `baru`, `dihubungi`, `deal`, dan `selesai` pada data permintaan dengan default `baru`.
+- [x] Tambahkan filter dashboard berdasarkan rentang tanggal, domisili, dan status follow-up.
+- [x] Tambahkan pembaruan status follow-up yang hanya dapat dilakukan admin.
+- [x] Tambahkan ekspor CSV dari hasil filter dengan escaping aman untuk data pelanggan.
+- [x] Tambahkan Vitest untuk filter, status, otorisasi admin, dan format CSV; jalankan build serta verifikasi responsif.
+- [x] Simpan checkpoint setelah seluruh fitur terverifikasi.

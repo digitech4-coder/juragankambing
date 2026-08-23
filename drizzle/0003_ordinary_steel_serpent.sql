@@ -1,0 +1,1 @@
+ALTER TABLE `contactRequests` ADD `followUpStatus` enum('baru','dihubungi','deal','selesai') DEFAULT 'baru' NOT NULL;

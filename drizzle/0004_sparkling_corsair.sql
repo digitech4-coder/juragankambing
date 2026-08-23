@@ -1,0 +1,2 @@
+CREATE INDEX `contactRequests_createdAt_idx` ON `contactRequests` (`createdAt`);--> statement-breakpoint
+CREATE INDEX `contactRequests_followUp_filter_idx` ON `contactRequests` (`domisili`,`followUpStatus`,`createdAt`);

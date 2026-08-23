@@ -49,10 +49,14 @@ export const contactRequests = mysqlTable("contactRequests", {
   guests: varchar("guests", { length: 80 }).notNull().default(""),
   message: text("message").notNull(),
   emailStatus: mysqlEnum("emailStatus", ["pending", "sent", "failed"]).notNull().default("pending"),
+  followUpStatus: mysqlEnum("followUpStatus", ["baru", "dihubungi", "deal", "selesai"]).notNull().default("baru"),
   emailSentAt: timestamp("emailSentAt"),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
-});
+}, table => ({
+  createdAtIdx: index("contactRequests_createdAt_idx").on(table.createdAt),
+  followUpFilterIdx: index("contactRequests_followUp_filter_idx").on(table.domisili, table.followUpStatus, table.createdAt),
+}));
 
 export type ContactRequestRecord = typeof contactRequests.$inferSelect;
 export type InsertContactRequest = typeof contactRequests.$inferInsert;

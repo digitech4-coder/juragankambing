@@ -2,10 +2,12 @@ import { z } from "zod";
 import { COOKIE_NAME, MAGIC_SESSION_COOKIE } from "@shared/const";
 import { ENV } from "./_core/env";
 import { contactRequestInput, sendContactRequest } from "./contact";
+import { contactHistoryInput, followUpStatusSchema, toContactHistoryFilters } from "./contactAdmin";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { adminProcedure, publicProcedure, router } from "./_core/trpc";
-import { createContactRequest, createStoredAsset, listContactRequests, listStoredAssets, updateContactRequestEmailStatus } from "./db";
+import { createContactRequest, createStoredAsset, listContactRequests, listStoredAssets, updateContactRequestEmailStatus, updateContactRequestFollowUpStatus } from "./db";
+import { contactRequestsToCsv } from "./contactCsv";
 import { storagePut } from "./storage";
 import { requestMagicLogin, verifyMagicLogin } from "./magicAuth";
 import { sdk } from "./_core/sdk";
@@ -69,7 +71,17 @@ export const appRouter = router({
           throw error;
         }
       }),
-    history: adminProcedure.query(() => listContactRequests()),
+    history: adminProcedure.input(contactHistoryInput).query(({ input }) => listContactRequests(toContactHistoryFilters(input))),
+    updateFollowUpStatus: adminProcedure
+      .input(z.object({ id: z.number().int().positive(), followUpStatus: followUpStatusSchema }))
+      .mutation(async ({ input }) => {
+        await updateContactRequestFollowUpStatus(input.id, input.followUpStatus);
+        return { success: true as const };
+      }),
+    exportCsv: adminProcedure.input(contactHistoryInput).query(async ({ input }) => ({
+      filename: `juragankambing-permintaan-${new Date().toISOString().slice(0, 10)}.csv`,
+      csv: contactRequestsToCsv(await listContactRequests(toContactHistoryFilters(input))),
+    })),
   }),
   fileStorage: router({
     list: adminProcedure.query(() => listStoredAssets()),

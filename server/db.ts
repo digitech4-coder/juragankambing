@@ -1,4 +1,4 @@
-import { and, desc, eq, gte, isNull } from "drizzle-orm";
+import { and, desc, eq, gte, lte, isNull } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
 import { ContactRequestRecord, InsertContactRequest, InsertMagicLoginToken, InsertStoredAsset, InsertUser, contactRequests, magicLoginTokens, storedAssets, users } from "../drizzle/schema";
 import { ENV } from './_core/env';
@@ -110,6 +110,7 @@ export async function createContactRequest(request: InsertContactRequest): Promi
     id: Number(result[0].insertId),
     ...request,
     emailStatus: request.emailStatus ?? "pending",
+    followUpStatus: request.followUpStatus ?? "baru",
     createdAt: request.createdAt ?? new Date(),
     updatedAt: request.updatedAt ?? new Date(),
   } as ContactRequestRecord;
@@ -124,10 +125,29 @@ export async function updateContactRequestEmailStatus(id: number, emailStatus: "
   }).where(eq(contactRequests.id, id));
 }
 
-export async function listContactRequests() {
+export type ContactRequestFilters = {
+  from?: Date;
+  to?: Date;
+  domisili?: string;
+  followUpStatus?: "baru" | "dihubungi" | "deal" | "selesai";
+};
+
+export async function listContactRequests(filters: ContactRequestFilters = {}) {
   const db = await getDb();
   if (!db) return [];
-  return db.select().from(contactRequests).orderBy(desc(contactRequests.createdAt)).limit(200);
+  const conditions = [];
+  if (filters.from) conditions.push(gte(contactRequests.createdAt, filters.from));
+  if (filters.to) conditions.push(lte(contactRequests.createdAt, filters.to));
+  if (filters.domisili) conditions.push(eq(contactRequests.domisili, filters.domisili));
+  if (filters.followUpStatus) conditions.push(eq(contactRequests.followUpStatus, filters.followUpStatus));
+  const where = conditions.length ? and(...conditions) : undefined;
+  return db.select().from(contactRequests).where(where).orderBy(desc(contactRequests.createdAt)).limit(200);
+}
+
+export async function updateContactRequestFollowUpStatus(id: number, followUpStatus: "baru" | "dihubungi" | "deal" | "selesai") {
+  const db = await getDb();
+  if (!db) throw new Error("Database is not available");
+  await db.update(contactRequests).set({ followUpStatus }).where(eq(contactRequests.id, id));
 }
 
 export async function countRecentMagicLoginTokens(email: string, since: Date) {
