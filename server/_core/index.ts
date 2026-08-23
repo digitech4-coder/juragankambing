@@ -36,6 +36,27 @@ async function startServer() {
   app.use(express.urlencoded({ limit: "50mb", extended: true }));
   registerStorageProxy(app);
   registerOAuthRoutes(app);
+
+  const allowedApiOrigins = new Set([
+    "https://juragankambing.id",
+    "https://www.juragankambing.id",
+  ]);
+  app.use("/api/trpc", (req, res, next) => {
+    const origin = req.headers.origin;
+    if (origin && allowedApiOrigins.has(origin)) {
+      res.setHeader("Access-Control-Allow-Origin", origin);
+      res.setHeader("Access-Control-Allow-Credentials", "true");
+      res.setHeader("Access-Control-Allow-Headers", "content-type, authorization");
+      res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+      res.setHeader("Vary", "Origin");
+    }
+    if (req.method === "OPTIONS") {
+      res.sendStatus(204);
+      return;
+    }
+    next();
+  });
+
   // tRPC API
   app.use(
     "/api/trpc",
