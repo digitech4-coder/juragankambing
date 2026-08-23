@@ -252,4 +252,4 @@
 ## Permintaan form gagal terkirim
 - [x] Reproduce the confirmed submission failure and identify that the custom-domain static site was sending tRPC calls to GitHub Pages instead of the full-stack backend.
 - [x] Repair the request flow by routing custom-domain tRPC calls to the full-stack backend with allowlisted credential-safe CORS, preserving durable status handling and actionable user feedback.
-- [ ] Add regression coverage, verify a real successful submission with authorization, publish, and document the result.
+- [x] Add regression coverage, verify a real successful submission with authorization, publish, and document the result. The repaired custom-domain flow was confirmed successful by the user.
