@@ -264,7 +264,7 @@
 
 
 ## Sinkronisasi update terbaru ke domain custom
-- [ ] Audit mengapa `https://juragankambing.id` belum menampilkan update terbaru dari versi Manus.
-- [ ] Bandingkan artefak GitHub Pages, workflow deployment, dan respons fresh dari domain custom.
-- [ ] Sinkronkan/redeploy artefak terbaru tanpa mengubah versi Manus yang sudah benar.
-- [ ] Verifikasi marker fitur terbaru pada domain custom dari cache-busting request dan simpan checkpoint.
+- [x] Audit mengapa `https://juragankambing.id` belum menampilkan update terbaru dari versi Manus. Penyebabnya adalah GitHub Pages legacy masih menyajikan root `index.html`, `404.html`, dan bundle `assets` lama meskipun workflow artifact terbaru berhasil.
+- [x] Bandingkan artefak GitHub Pages, workflow deployment, dan respons fresh dari domain custom.
+- [x] Sinkronkan/redeploy artefak terbaru tanpa mengubah versi Manus yang sudah benar. Root static artifact diperbarui dan workflow Pages commit `31af2812` selesai sukses.
+- [x] Verifikasi marker fitur terbaru pada domain custom dari cache-busting request dan simpan checkpoint. Domain custom kini menampilkan Email, Domisili, dan `LANJUT KE RINGKASAN`.
