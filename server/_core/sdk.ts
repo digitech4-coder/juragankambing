@@ -1,4 +1,4 @@
-import { AXIOS_TIMEOUT_MS, COOKIE_NAME, ONE_YEAR_MS, decodeOAuthState } from "@shared/const";
+import { AXIOS_TIMEOUT_MS, COOKIE_NAME, MAGIC_SESSION_COOKIE, ONE_YEAR_MS, decodeOAuthState } from "@shared/const";
 import { ForbiddenError } from "@shared/_core/errors";
 import axios, { type AxiosInstance } from "axios";
 import { parse as parseCookieHeader } from "cookie";
@@ -259,8 +259,15 @@ class SDKServer {
     // 1. Prefer the session cookie (regular OAuth login).
     const cookies = this.parseCookies(req.headers.cookie);
     let sessionToken = cookies.get(COOKIE_NAME);
+    let isMagicSession = false;
 
-    // 2. Fallback to the Authorization header (Preview auto-login via
+    // 2. Independent admin magic-link session.
+    if (!sessionToken) {
+      sessionToken = cookies.get(MAGIC_SESSION_COOKIE);
+      isMagicSession = Boolean(sessionToken);
+    }
+
+    // 3. Fallback to the Authorization header (Preview auto-login via
     //    sessionStorage), used when the browser blocks iframe cookies such as
     //    Safari ITP, private browsing, or iOS/Android WebView.
     if (!sessionToken) {
@@ -288,6 +295,11 @@ class SDKServer {
     const sessionUserId = session.openId;
     const signedInAt = new Date();
     let user = await db.getUserByOpenId(sessionUserId);
+
+    // Magic-link sessions must resolve to an existing DB user and never call OAuth.
+    if (!user && isMagicSession) {
+      throw ForbiddenError("Magic-link session user not found");
+    }
 
     // If user not in DB, sync from OAuth server automatically
     if (!user) {

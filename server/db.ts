@@ -1,6 +1,6 @@
-import { desc, eq } from "drizzle-orm";
+import { and, desc, eq, gte, isNull } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { ContactRequestRecord, InsertContactRequest, InsertStoredAsset, InsertUser, contactRequests, storedAssets, users } from "../drizzle/schema";
+import { ContactRequestRecord, InsertContactRequest, InsertMagicLoginToken, InsertStoredAsset, InsertUser, contactRequests, magicLoginTokens, storedAssets, users } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -128,4 +128,40 @@ export async function listContactRequests() {
   const db = await getDb();
   if (!db) return [];
   return db.select().from(contactRequests).orderBy(desc(contactRequests.createdAt)).limit(200);
+}
+
+export async function countRecentMagicLoginTokens(email: string, since: Date) {
+  const db = await getDb();
+  if (!db) throw new Error("Database is not available");
+  const rows = await db.select({ id: magicLoginTokens.id }).from(magicLoginTokens)
+    .where(and(eq(magicLoginTokens.email, email), gte(magicLoginTokens.createdAt, since)));
+  return rows.length;
+}
+
+export async function createMagicLoginToken(token: InsertMagicLoginToken) {
+  const db = await getDb();
+  if (!db) throw new Error("Database is not available");
+  await db.insert(magicLoginTokens).values(token);
+}
+
+export async function getMagicLoginTokenByHash(tokenHash: string) {
+  const db = await getDb();
+  if (!db) throw new Error("Database is not available");
+  const rows = await db.select().from(magicLoginTokens).where(eq(magicLoginTokens.tokenHash, tokenHash)).limit(1);
+  return rows[0];
+}
+
+export async function consumeMagicLoginToken(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database is not available");
+  const result = await db.update(magicLoginTokens).set({ usedAt: new Date() })
+    .where(and(eq(magicLoginTokens.id, id), isNull(magicLoginTokens.usedAt)));
+  return Number(result[0].affectedRows ?? 0) === 1;
+}
+
+export async function getUserByEmail(email: string) {
+  const db = await getDb();
+  if (!db) throw new Error("Database is not available");
+  const rows = await db.select().from(users).where(eq(users.email, email)).limit(1);
+  return rows[0];
 }

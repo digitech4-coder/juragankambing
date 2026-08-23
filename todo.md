@@ -229,3 +229,18 @@
 - [x] Reproduce the deployed login flow and identify whether the callback, OAuth state, or deployment artifact drops the admin return path.
 - [x] Apply a deployment-compatible fix that returns the verified admin account to `/admin/requests` without weakening CSRF or open-redirect protections.
 - [ ] Add regression coverage, verify the live flow with the user session, and save a checkpoint.
+
+## OAuth callback gagal setelah login
+- [ ] Inspect the callback error logs and identify the failing token exchange, state validation, or session persistence step.
+- [ ] Fix the callback while preserving OAuth security checks and the requested `/admin/requests` return path.
+- [ ] Add regression coverage, verify the live login flow, and save a checkpoint.
+
+## Alternatif login admin tanpa OAuth pusat
+- [ ] Evaluate secure alternatives that do not rely on Manus OAuth, including their credential, recovery, and deployment requirements.
+- [ ] Select a fallback only after confirming the user’s preferred provider or recovery channel; do not store the previously shared password or create a bypass.
+- [ ] Implement and test the chosen fallback, preserve admin-only request history, publish it, and document setup and rollback steps.
+
+## Login admin melalui magic link email
+- [x] Add a secure email magic-link request and verification flow for digitechsmart4@gmail.com without storing a password.
+- [x] Use one-time hashed tokens with short expiry, rate limiting, admin allowlist checks, and a secure session cookie independent of Manus OAuth.
+- [x] Integrate the flow into the admin page, add regression/security tests, run the build, publish, and document the setup.

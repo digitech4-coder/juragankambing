@@ -1,4 +1,4 @@
-import { int, mysqlEnum, mysqlTable, text, timestamp, varchar } from "drizzle-orm/mysql-core";
+import { index, int, mysqlEnum, mysqlTable, text, timestamp, varchar } from "drizzle-orm/mysql-core";
 
 /**
  * Core user table backing auth flow.
@@ -56,3 +56,17 @@ export const contactRequests = mysqlTable("contactRequests", {
 
 export type ContactRequestRecord = typeof contactRequests.$inferSelect;
 export type InsertContactRequest = typeof contactRequests.$inferInsert;
+
+export const magicLoginTokens = mysqlTable("magicLoginTokens", {
+  id: int("id").autoincrement().primaryKey(),
+  email: varchar("email", { length: 320 }).notNull(),
+  tokenHash: varchar("tokenHash", { length: 128 }).notNull().unique(),
+  expiresAt: timestamp("expiresAt").notNull(),
+  usedAt: timestamp("usedAt"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+}, table => ({
+  emailCreatedAtIdx: index("magicLoginTokens_email_createdAt_idx").on(table.email, table.createdAt),
+}));
+
+export type MagicLoginToken = typeof magicLoginTokens.$inferSelect;
+export type InsertMagicLoginToken = typeof magicLoginTokens.$inferInsert;

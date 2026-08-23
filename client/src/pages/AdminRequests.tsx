@@ -1,11 +1,20 @@
 import { useAuth } from "@/_core/hooks/useAuth";
 import { startLogin } from "@/const";
+import { useState } from "react";
 import DashboardLayout from "@/components/DashboardLayout";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { trpc } from "@/lib/trpc";
 import { Loader2, MessageCircle, RefreshCw } from "lucide-react";
 import { toast } from "sonner";
 import { BUSINESS_WHATSAPP_NUMBER, buildContactWhatsAppMessage } from "@shared/contact";
+
+function MagicLinkRequest() {
+  const [email, setEmail] = useState("");
+  const [sent, setSent] = useState(false);
+  const request = trpc.auth.requestMagicLink.useMutation({ onSuccess: () => setSent(true) });
+  return <div className="mt-6 w-full max-w-md rounded-2xl border border-[#E0D5C3] bg-[#FFFCF5] p-5 text-left shadow-sm"><label htmlFor="admin-email" className="text-xs font-bold uppercase tracking-[.08em] text-[#7A5A20]">Email admin</label><Input id="admin-email" type="email" autoComplete="email" value={email} onChange={event => setEmail(event.target.value)} placeholder="digitechsmart4@gmail.com" className="mt-2 bg-white" disabled={request.isPending || sent} /><Button type="button" disabled={!email || request.isPending || sent} onClick={() => request.mutate({ email, origin: window.location.origin })} className="mt-3 w-full rounded-full bg-[#0E5A4A] text-white hover:bg-[#124D40]">{request.isPending ? "Mengirim tautan…" : sent ? "Tautan sudah dikirim" : "Kirim magic link"}</Button>{sent && <p className="mt-3 text-xs leading-5 text-[#527065]">Periksa inbox email admin. Tautan berlaku singkat dan hanya dapat digunakan sekali.</p>}{request.isError && <p role="alert" className="mt-3 text-xs leading-5 text-[#A5402F]">Tautan belum dapat dikirim. Silakan coba lagi.</p>}</div>;
+}
 
 type RequestItem = {
   id: number;
@@ -75,7 +84,7 @@ export default function AdminRequests() {
   }
 
   if (loading) return <div className="grid min-h-screen place-items-center bg-[#F8F4EA]"><Loader2 aria-label="Memuat akses admin" className="h-6 w-6 animate-spin text-[#0E5A4A]" /></div>;
-  if (!isAuthenticated) return <div className="grid min-h-screen place-items-center bg-[#F8F4EA] p-6 text-center text-[#173D31]"><div><p className="eyebrow mb-3">Admin workspace</p><h1 className="display-serif text-4xl">Masuk untuk melihat permintaan.</h1><p className="mx-auto mt-3 max-w-md text-[#527065]">Halaman ini hanya untuk pengelola JuraganKambing.id.</p><Button type="button" onClick={() => startLogin()} className="mt-6 rounded-full bg-[#0E5A4A] px-5 text-white hover:bg-[#124D40]">Masuk sebagai admin</Button></div></div>;
+  if (!isAuthenticated) return <div className="grid min-h-screen place-items-center bg-[#F8F4EA] p-6 text-center text-[#173D31]"><div><p className="eyebrow mb-3">Admin workspace</p><h1 className="display-serif text-4xl">Masuk untuk melihat permintaan.</h1><p className="mx-auto mt-3 max-w-md text-[#527065]">Gunakan magic link yang dikirim ke email admin. Password lokal tidak disimpan.</p><MagicLinkRequest /><div className="mt-4"><Button type="button" variant="ghost" onClick={() => startLogin()} className="text-xs text-[#527065] underline underline-offset-4 hover:bg-transparent">Gunakan login Manus OAuth</Button></div></div></div>;
   if (user?.role !== "admin") return <div className="grid min-h-screen place-items-center bg-[#F8F4EA] p-6 text-center text-[#173D31]"><div><p className="eyebrow mb-3">Admin workspace</p><h1 className="display-serif text-4xl">Akses terbatas.</h1><p className="mt-3 max-w-md text-[#527065]">Riwayat permintaan hanya tersedia untuk admin JuraganKambing.id.</p></div></div>;
 
   return <DashboardLayout><div className="min-h-[calc(100vh-2rem)] bg-[#F8F4EA] px-1 py-4 text-[#173D31] sm:px-4 sm:py-6"><div className="mx-auto max-w-6xl"><header className="flex flex-col gap-5 border-b border-[#D7CDBB] pb-7 sm:flex-row sm:items-end sm:justify-between"><div><p className="eyebrow mb-3">Admin workspace</p><h1 className="display-serif text-5xl leading-none">Riwayat permintaan.</h1><p className="mt-4 max-w-xl text-sm leading-6 text-[#527065]">Lihat permintaan konsultasi terbaru, status email, dan siapkan tindak lanjut melalui WhatsApp.</p></div><Button type="button" onClick={refresh} disabled={history.isFetching} className="rounded-full bg-[#0E5A4A] px-5 text-white hover:bg-[#124D40]"><RefreshCw className={`mr-2 h-4 w-4 ${history.isFetching ? "animate-spin" : ""}`} />{history.isFetching ? "Memuat…" : "Segarkan"}</Button></header><div className="mt-7 flex flex-wrap items-center justify-between gap-3"><p className="text-sm font-semibold text-[#4B665C]">{history.data?.length ?? 0} permintaan terbaru</p><p className="text-xs text-[#698074]">Maksimal 200 data terakhir</p></div>{history.isLoading && <div className="mt-5 rounded-2xl border border-[#E0D5C3] bg-[#FFFCF5] p-8 text-center text-sm text-[#527065]">Memuat riwayat permintaan…</div>}{history.isError && <div className="mt-5 rounded-2xl border border-[#E6B8AE] bg-[#FFF3F0] p-8 text-center text-sm text-[#A5402F]">Riwayat belum dapat dimuat. Silakan segarkan kembali.</div>}{!history.isLoading && !history.isError && history.data?.length === 0 && <div className="mt-5 rounded-2xl border border-dashed border-[#CDBEAA] bg-[#FFFCF5] p-10 text-center text-sm text-[#527065]">Belum ada permintaan konsultasi yang tersimpan.</div>}{!history.isLoading && !history.isError && history.data && history.data.length > 0 && <div className="mt-5 grid gap-4">{history.data.map(request => <RequestCard key={request.id} request={request as RequestItem} />)}</div>}</div></div></DashboardLayout>;
