@@ -247,4 +247,4 @@
 - [x] Bound the Resend magic-link request to a 15-second timeout so the admin button resolves with an error instead of remaining pending indefinitely; Vitest 16/16 and production build passed.
 
 ## Checkpoint setelah verifikasi magic link
-- [ ] Save a checkpoint explicitly recording that the real magic-link session reached the protected `/admin/requests` dashboard successfully.
+- [x] Save a checkpoint explicitly recording that the real magic-link session reached the protected `/admin/requests` dashboard successfully.
