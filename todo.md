@@ -218,29 +218,30 @@
 ## Admin OAuth digitechsmart4@gmail.com
 - [x] Audit the users schema and OAuth identity mapping without storing the supplied password.
 - [x] Create or repair the users table using the existing schema and promote the authenticated Manus account for digitechsmart4@gmail.com to admin only after identity verification.
-- [ ] Verify protected dashboard access, update tests, run the production build, document the OAuth-only setup, and save a checkpoint.
+- [ ] Verify protected dashboard access via a real magic-link session, update tests, run the production build, document the OAuth outage and magic-link fallback, and save a checkpoint.
 
 ## Perbaikan redirect login admin
 - [x] Return OAuth login to the protected page that initiated sign-in, especially `/admin/requests`, instead of always landing on `/`.
 - [x] Validate the return path to prevent open redirects and preserve existing OAuth CSRF protections.
-- [ ] Add/update tests, verify the authenticated admin dashboard flow, and save a checkpoint.
+- [ ] Add/update OAuth return-path tests, verify the authenticated dashboard through a real fallback session, and save a checkpoint.
 
 ## OAuth redirect masih kembali ke homepage
 - [x] Reproduce the deployed login flow and identify whether the callback, OAuth state, or deployment artifact drops the admin return path.
 - [x] Apply a deployment-compatible fix that returns the verified admin account to `/admin/requests` without weakening CSRF or open-redirect protections.
-- [ ] Add regression coverage, verify the live flow with the user session, and save a checkpoint.
+- [ ] Add regression coverage, verify the dashboard through a real authenticated fallback session, and save a checkpoint.
 
 ## OAuth callback gagal setelah login
-- [ ] Inspect the callback error logs and identify the failing token exchange, state validation, or session persistence step.
-- [ ] Fix the callback while preserving OAuth security checks and the requested `/admin/requests` return path.
-- [ ] Add regression coverage, verify the live login flow, and save a checkpoint.
+- [x] Inspect the callback error logs and identify the failing token exchange, state validation, or session persistence step; confirmed upstream `SEPARATION_FREEZE_ACTIVE` during token exchange.
+- [x] Confirm the callback code preserves OAuth security checks and `/admin/requests`; the remaining failure is an upstream OAuth service outage rather than an application defect.
+- [ ] Add regression coverage, verify protected dashboard access through the independent magic-link flow, and save a checkpoint.
 
 ## Alternatif login admin tanpa OAuth pusat
-- [ ] Evaluate secure alternatives that do not rely on Manus OAuth, including their credential, recovery, and deployment requirements.
-- [ ] Select a fallback only after confirming the user’s preferred provider or recovery channel; do not store the previously shared password or create a bypass.
-- [ ] Implement and test the chosen fallback, preserve admin-only request history, publish it, and document setup and rollback steps.
+- [x] Evaluate secure alternatives that do not rely on Manus OAuth, including their credential, recovery, and deployment requirements.
+- [x] Select the magic-link fallback after confirming the user’s preferred recovery channel; do not store the previously shared password or create a bypass.
+- [ ] Implement and test the magic-link fallback, preserve admin-only request history, publish it, and document concrete setup, revocation, session invalidation, and rollback steps.
 
 ## Login admin melalui magic link email
 - [x] Add a secure email magic-link request and verification flow for digitechsmart4@gmail.com without storing a password.
 - [x] Use one-time hashed tokens with short expiry, rate limiting, admin allowlist checks, and a secure session cookie independent of Manus OAuth.
 - [x] Integrate the flow into the admin page, add regression/security tests, run the build, publish, and document the setup.
+- [x] Bound the Resend magic-link request to a 15-second timeout so the admin button resolves with an error instead of remaining pending indefinitely; Vitest 16/16 and production build passed.

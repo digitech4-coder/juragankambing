@@ -11,6 +11,7 @@ import {
 const MAGIC_LINK_TTL_MS = 10 * 60 * 1000;
 const RATE_WINDOW_MS = 15 * 60 * 1000;
 const MAX_REQUESTS_PER_WINDOW = 3;
+const MAGIC_EMAIL_TIMEOUT_MS = 15_000;
 
 function normalizeEmail(email: string) {
   return email.trim().toLowerCase();
@@ -37,6 +38,7 @@ async function sendMagicLinkEmail(email: string, link: string, apiKey: string) {
   const response = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
+    signal: AbortSignal.timeout(MAGIC_EMAIL_TIMEOUT_MS),
     body: JSON.stringify({
       from: "noreply@juragankambing.id",
       to: [email],
