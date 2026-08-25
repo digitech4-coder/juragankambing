@@ -268,3 +268,10 @@
 - [x] Bandingkan artefak GitHub Pages, workflow deployment, dan respons fresh dari domain custom.
 - [x] Sinkronkan/redeploy artefak terbaru tanpa mengubah versi Manus yang sudah benar. Root static artifact diperbarui dan workflow Pages commit `31af2812` selesai sukses.
 - [x] Verifikasi marker fitur terbaru pada domain custom dari cache-busting request dan simpan checkpoint. Domain custom kini menampilkan Email, Domisili, dan `LANJUT KE RINGKASAN`.
+
+
+## Header sticky
+- [x] Jadikan header sticky dengan logo dan menu navigasi tetap terlihat saat scroll.
+- [x] Pastikan z-index, latar belakang, dan spacing tidak menutupi konten serta tetap responsif di mobile.
+- [x] Uji fungsi scroll, TypeScript, build produksi, dan tampilan desktop/mobile. 21 Vitest tests, TypeScript, build produksi, serta capture 1280px dan 360px berhasil.
+- [x] Simpan checkpoint setelah perubahan sticky header terverifikasi.
