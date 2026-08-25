@@ -296,5 +296,5 @@
 ## Perbaikan regresi sticky header
 - [x] Audit penyebab header masih hilang saat scroll pada domain Manus dan custom. Parent `.page-shell` memiliki `overflow-x-hidden` yang membuat `overflow-y:auto`, sehingga sticky terikat pada scroll container yang salah.
 - [x] Perkuat implementasi sticky header agar tidak bergantung pada perilaku parent layout yang mengganggu. Mengganti `overflow-x-hidden` menjadi `overflow-x-clip` membuat `overflow-y:visible` dan sticky mengikuti viewport.
-- [ ] Verifikasi scroll aktual di desktop dan mobile pada kedua domain.
-- [ ] Jalankan TypeScript, Vitest, build produksi, lalu simpan checkpoint perbaikan.
+- [x] Verifikasi scroll aktual di desktop dan mobile pada kedua domain. Pada Manus dan `juragankambing.id`, marker `viewport` aktif, overflow parent `clip/visible`, dan header tetap `top: 0` setelah `scrollY: 900`.
+- [x] Jalankan TypeScript, Vitest, build produksi, lalu simpan checkpoint perbaikan. TypeScript bersih, 21 Vitest tests lulus, build produksi berhasil, dan checkpoint sinkronisasi tersimpan.
