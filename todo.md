@@ -319,3 +319,10 @@
 - [x] Sinkronkan build terbaru ke root artifact GitHub Pages/domain custom tanpa mengubah layout yang sudah disetujui. Artifact root sudah disalin dari `dist/public`.
 - [x] Verifikasi `juragankambing.id` pada viewport mobile dan desktop dengan cache-busting. Judul terbaru terdeteksi live; capture mobile 360px dan desktop 1280px berhasil.
 - [x] Jalankan tes/build bila diperlukan dan simpan checkpoint publikasi sinkronisasi. 21 Vitest tests dan build produksi telah lulus pada artifact yang sama; checkpoint sinkronisasi akan disimpan berikutnya.
+
+
+## Tombol WhatsApp floating
+- [x] Tambahkan tombol WhatsApp mengambang di sudut kanan bawah dengan tautan ke 085211885000. Tombol memakai helper WhatsApp yang mengarah ke nomor 6285211885000.
+- [x] Pastikan label, tooltip, focus state, z-index, dan posisi tidak mengganggu konten pada mobile maupun desktop. Label layanan 24 jam, tooltip, focus ring, `z-[70]`, dan posisi kanan bawah telah diverifikasi.
+- [x] Tambahkan atau perbarui tes untuk tautan WhatsApp dan jalankan TypeScript, Vitest, build, serta verifikasi visual. TypeScript bersih, 21 tes Vitest lulus, build produksi berhasil, dan capture mobile 360px/desktop 1280px menunjukkan tombol.
+- [ ] Simpan checkpoint dan publikasikan perubahan ke domain live.
