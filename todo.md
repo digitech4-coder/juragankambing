@@ -305,3 +305,10 @@
 - [x] Ganti semua kemunculan menjadi “Katering, Aqiqah & Qurban Tangerang Selatan”, termasuk metadata dan artifact statis. Variasi footer dan template internal juga diselaraskan ke Qurban.
 - [x] Verifikasi tidak ada frasa lama tersisa pada file user-facing, lalu jalankan 21 Vitest tests dan build produksi; seluruhnya berhasil.
 - [x] Simpan checkpoint dan publikasikan perubahan ke domain Manus serta domain custom. Checkpoint `2552057d` berhasil disimpan dan dipublikasikan.
+
+
+## Pembaruan judul dengan nomor WhatsApp
+- [x] Audit seluruh kemunculan “Juragankambing.id | Katering, Aqiqah & Qurban Tangerang Selatan”. Kemunculan ditemukan pada metadata client, root artifact, dan fallback 404.
+- [x] Ganti semua kemunculan menjadi “Juragankambing.id - 085211885000 | Katering, Aqiqah & Qurban Tangerang Selatan”, termasuk metadata dan artifact statis.
+- [x] Verifikasi judul baru pada file user-facing, jalankan tes/build, dan cek tampilan responsif. Judul lama tidak tersisa, 21 Vitest tests lulus, build produksi berhasil, dan root artifact telah disinkronkan.
+- [ ] Simpan checkpoint dan publikasikan pembaruan ke domain Manus serta domain custom.
