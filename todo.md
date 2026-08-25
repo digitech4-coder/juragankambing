@@ -311,4 +311,11 @@
 - [x] Audit seluruh kemunculan “Juragankambing.id | Katering, Aqiqah & Qurban Tangerang Selatan”. Kemunculan ditemukan pada metadata client, root artifact, dan fallback 404.
 - [x] Ganti semua kemunculan menjadi “Juragankambing.id - 085211885000 | Katering, Aqiqah & Qurban Tangerang Selatan”, termasuk metadata dan artifact statis.
 - [x] Verifikasi judul baru pada file user-facing, jalankan tes/build, dan cek tampilan responsif. Judul lama tidak tersisa, 21 Vitest tests lulus, build produksi berhasil, dan root artifact telah disinkronkan.
-- [ ] Simpan checkpoint dan publikasikan pembaruan ke domain Manus serta domain custom.
+- [x] Simpan checkpoint dan publikasikan pembaruan ke domain Manus serta domain custom. Checkpoint `320cd3ef` berhasil disimpan dan dipublikasikan.
+
+
+## Sinkronisasi update mobile dan desktop terbaru
+- [x] Audit marker update terbaru dan artifact responsive untuk mobile serta desktop. Build/root artifact sudah merujuk bundle terbaru dan title terbaru.
+- [x] Sinkronkan build terbaru ke root artifact GitHub Pages/domain custom tanpa mengubah layout yang sudah disetujui. Artifact root sudah disalin dari `dist/public`.
+- [x] Verifikasi `juragankambing.id` pada viewport mobile dan desktop dengan cache-busting. Judul terbaru terdeteksi live; capture mobile 360px dan desktop 1280px berhasil.
+- [x] Jalankan tes/build bila diperlukan dan simpan checkpoint publikasi sinkronisasi. 21 Vitest tests dan build produksi telah lulus pada artifact yang sama; checkpoint sinkronisasi akan disimpan berikutnya.
