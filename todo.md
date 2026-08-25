@@ -291,3 +291,10 @@
 - [x] Sinkronkan publikasi ke kedua domain tanpa mengubah fitur aplikasi lainnya. Verifikasi live menunjukkan kedua domain sudah menggunakan bundle terbaru.
 - [x] Verifikasi fresh response serta tampilan kedua domain setelah deployment selesai. Header shadow aktif pada scroll dan indikator berpindah ke `Paket Favorit` pada section target.
 - [x] Simpan checkpoint sinkronisasi dan dokumentasikan hasilnya.
+
+
+## Perbaikan regresi sticky header
+- [x] Audit penyebab header masih hilang saat scroll pada domain Manus dan custom. Parent `.page-shell` memiliki `overflow-x-hidden` yang membuat `overflow-y:auto`, sehingga sticky terikat pada scroll container yang salah.
+- [x] Perkuat implementasi sticky header agar tidak bergantung pada perilaku parent layout yang mengganggu. Mengganti `overflow-x-hidden` menjadi `overflow-x-clip` membuat `overflow-y:visible` dan sticky mengikuti viewport.
+- [ ] Verifikasi scroll aktual di desktop dan mobile pada kedua domain.
+- [ ] Jalankan TypeScript, Vitest, build produksi, lalu simpan checkpoint perbaikan.

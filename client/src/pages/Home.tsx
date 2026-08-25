@@ -179,7 +179,7 @@ export default function Home() {
     }
   }
 
-  return <div className="page-shell min-h-screen overflow-x-hidden bg-[#F8F4EA] text-[#173D31]"><div aria-hidden="true" className="page-loading-indicator" />
+  return <div className="page-shell min-h-screen overflow-x-clip bg-[#F8F4EA] text-[#173D31]"><div aria-hidden="true" className="page-loading-indicator" />
     <header className={`sticky top-0 z-50 border-b border-[#D7CDBB]/70 bg-[#F8F4EA]/95 backdrop-blur-xl transition-shadow duration-200 ${headerScrolled ? "shadow-[0_8px_24px_rgba(23,61,49,.12)]" : "shadow-none"}`}>
       <div className="container flex h-[76px] items-center justify-between gap-2 max-[340px]:h-[68px] max-[340px]:gap-1 sm:gap-6">
         <a href="#beranda" className="flex min-w-0 items-center gap-2 max-[340px]:gap-1 sm:gap-3" onClick={() => setMenuOpen(false)}><img src={asset.mark} alt="Simbol JuraganKambing.id" className="h-10 w-10 shrink-0 object-contain max-[340px]:h-8 max-[340px]:w-8 sm:h-14 sm:w-14" width="56" height="56" loading="eager" decoding="async" /><span className="leading-none"><strong className="block text-[11px] font-extrabold tracking-[.08em] text-[#0E5A4A] max-[340px]:text-[9px] max-[340px]:tracking-[.04em] sm:text-[15px] sm:tracking-[.11em]">JURAGANKAMBING.ID</strong><small className="mt-1 block text-[8px] font-bold tracking-[.2em] text-[#7A5A20] max-[340px]:text-[7px] max-[340px]:tracking-[.1em] sm:text-[10px] sm:tracking-[.3em]">TANGERANG SELATAN</small></span></a>
