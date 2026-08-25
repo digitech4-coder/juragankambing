@@ -275,3 +275,11 @@
 - [x] Pastikan z-index, latar belakang, dan spacing tidak menutupi konten serta tetap responsif di mobile.
 - [x] Uji fungsi scroll, TypeScript, build produksi, dan tampilan desktop/mobile. 21 Vitest tests, TypeScript, build produksi, serta capture 1280px dan 360px berhasil.
 - [x] Simpan checkpoint setelah perubahan sticky header terverifikasi.
+
+
+## Penyempurnaan header sticky
+- [x] Tambahkan bayangan header dinamis saat pengguna mulai scroll.
+- [x] Tambahkan indikator menu aktif berdasarkan section yang sedang terlihat.
+- [x] Optimalkan spacing dan ukuran elemen header untuk viewport sekitar 320px.
+- [x] Uji interaksi scroll, responsivitas 320px/360px/1280px, TypeScript, Vitest, dan build produksi. 21 Vitest tests, TypeScript, build produksi, serta capture 320px, 360px, dan 1280px berhasil.
+- [x] Simpan checkpoint setelah seluruh penyempurnaan terverifikasi.

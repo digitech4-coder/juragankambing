@@ -109,14 +109,34 @@ export default function Home() {
   const [submitted, setSubmitted] = useState(false);
   const [testimonialStart, setTestimonialStart] = useState(0);
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [headerScrolled, setHeaderScrolled] = useState(false);
+  const [activeNav, setActiveNav] = useState("Layanan");
   const [contactReview, setContactReview] = useState<ContactReview | null>(null);
   const contactFormRef = useRef<HTMLFormElement>(null);
   const contactMutation = trpc.contact.sendRequest.useMutation();
   useEffect(() => {
-    const onScroll = () => setShowBackToTop(window.scrollY > 520);
+    const onScroll = () => {
+      setShowBackToTop(window.scrollY > 520);
+      setHeaderScrolled(window.scrollY > 8);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+
+    const sectionIds = ["layanan", "paket-favorit", "galeri", "faq", "kontak"];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) setActiveNav(visible.target.id === "layanan" ? "Layanan" : visible.target.id.split("-").map((word) => word[0].toUpperCase() + word.slice(1)).join(" "));
+      },
+      { rootMargin: "-84px 0px -55% 0px", threshold: [0.1, 0.35, 0.6] },
+    );
+    sectionIds.forEach((id) => document.getElementById(id) && observer.observe(document.getElementById(id)!));
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      observer.disconnect();
+    };
   }, []);
   const visibleTestimonials = [0, 1, 2].map((offset) => testimonials[(testimonialStart + offset) % testimonials.length]);
   const nav = ["Layanan", "Paket Favorit", "Galeri", "FAQ", "Kontak"];
@@ -160,15 +180,15 @@ export default function Home() {
   }
 
   return <div className="page-shell min-h-screen overflow-x-hidden bg-[#F8F4EA] text-[#173D31]"><div aria-hidden="true" className="page-loading-indicator" />
-    <header className="sticky top-0 z-50 border-b border-[#D7CDBB]/70 bg-[#F8F4EA]/95 backdrop-blur-xl">
-      <div className="container flex h-[76px] items-center justify-between gap-2 sm:gap-6">
-        <a href="#beranda" className="flex min-w-0 items-center gap-2 sm:gap-3" onClick={() => setMenuOpen(false)}><img src={asset.mark} alt="Simbol JuraganKambing.id" className="h-10 w-10 shrink-0 object-contain sm:h-14 sm:w-14" width="56" height="56" loading="eager" decoding="async" /><span className="leading-none"><strong className="block text-[11px] font-extrabold tracking-[.08em] text-[#0E5A4A] sm:text-[15px] sm:tracking-[.11em]">JURAGANKAMBING.ID</strong><small className="mt-1 block text-[8px] font-bold tracking-[.2em] text-[#7A5A20] sm:text-[10px] sm:tracking-[.3em]">TANGERANG SELATAN</small></span></a>
-        <span aria-label="Layanan buka 24 jam" className="live-hours-badge inline-flex max-w-[78px] shrink-0 items-center justify-center gap-1 rounded-full border border-[#D9B66B]/70 bg-[#FFF7DF] px-2 py-1.5 text-center text-[8px] font-extrabold uppercase leading-tight tracking-[.06em] text-[#7A5A20] shadow-sm sm:max-w-none sm:gap-2 sm:px-3 sm:py-2 sm:text-[10px] sm:tracking-[.1em]"><span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#25A66F] shadow-[0_0_0_3px_rgba(37,166,111,.14)] sm:h-2 sm:w-2" /> Buka 24 Jam</span>
-        <nav aria-label="Navigasi utama" className="hidden items-center gap-7 lg:flex">{nav.map((item) => <a key={item} href={`#${item.toLowerCase().replaceAll(" ", "-")}`} className="text-[12px] font-bold text-[#4A665B] transition-colors hover:text-[#0E5A4A]">{item}</a>)}</nav>
+    <header className={`sticky top-0 z-50 border-b border-[#D7CDBB]/70 bg-[#F8F4EA]/95 backdrop-blur-xl transition-shadow duration-200 ${headerScrolled ? "shadow-[0_8px_24px_rgba(23,61,49,.12)]" : "shadow-none"}`}>
+      <div className="container flex h-[76px] items-center justify-between gap-2 max-[340px]:h-[68px] max-[340px]:gap-1 sm:gap-6">
+        <a href="#beranda" className="flex min-w-0 items-center gap-2 max-[340px]:gap-1 sm:gap-3" onClick={() => setMenuOpen(false)}><img src={asset.mark} alt="Simbol JuraganKambing.id" className="h-10 w-10 shrink-0 object-contain max-[340px]:h-8 max-[340px]:w-8 sm:h-14 sm:w-14" width="56" height="56" loading="eager" decoding="async" /><span className="leading-none"><strong className="block text-[11px] font-extrabold tracking-[.08em] text-[#0E5A4A] max-[340px]:text-[9px] max-[340px]:tracking-[.04em] sm:text-[15px] sm:tracking-[.11em]">JURAGANKAMBING.ID</strong><small className="mt-1 block text-[8px] font-bold tracking-[.2em] text-[#7A5A20] max-[340px]:text-[7px] max-[340px]:tracking-[.1em] sm:text-[10px] sm:tracking-[.3em]">TANGERANG SELATAN</small></span></a>
+        <span aria-label="Layanan buka 24 jam" className="live-hours-badge inline-flex max-w-[78px] shrink-0 items-center justify-center gap-1 rounded-full border border-[#D9B66B]/70 bg-[#FFF7DF] px-2 py-1.5 text-center text-[8px] font-extrabold uppercase leading-tight tracking-[.06em] text-[#7A5A20] shadow-sm max-[340px]:max-w-[60px] max-[340px]:px-1 max-[340px]:py-1 max-[340px]:text-[7px] sm:max-w-none sm:gap-2 sm:px-3 sm:py-2 sm:text-[10px] sm:tracking-[.1em]"><span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#25A66F] shadow-[0_0_0_3px_rgba(37,166,111,.14)] sm:h-2 sm:w-2" /> Buka 24 Jam</span>
+        <nav aria-label="Navigasi utama" className="hidden items-center gap-7 lg:flex">{nav.map((item) => { const isActive = activeNav === item; return <a key={item} href={`#${item.toLowerCase().replaceAll(" ", "-")}`} aria-current={isActive ? "page" : undefined} className={`relative text-[12px] font-bold transition-colors after:absolute after:-bottom-2 after:left-0 after:h-0.5 after:rounded-full after:bg-[#D9B66B] after:transition-all ${isActive ? "text-[#0E5A4A] after:w-full" : "text-[#4A665B] after:w-0 hover:text-[#0E5A4A] hover:after:w-full"}`}>{item}</a>; })}</nav>
         <button className="hidden rounded-full bg-[#0E5A4A] px-5 py-3 text-[11px] font-extrabold tracking-[.12em] text-white shadow-lg shadow-[#0E5A4A]/15 transition hover:bg-[#124D40] active:scale-95 sm:block" onClick={() => wa(heroMessage)}>PESAN VIA WHATSAPP</button>
-        <button type="button" aria-label={menuOpen ? "Tutup menu" : "Buka menu"} aria-expanded={menuOpen} aria-controls="mobile-menu" className="shrink-0 rounded-full p-1.5 text-[#0E5A4A] sm:p-2 lg:hidden" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}</button>
+        <button type="button" aria-label={menuOpen ? "Tutup menu" : "Buka menu"} aria-expanded={menuOpen} aria-controls="mobile-menu" className="shrink-0 rounded-full p-1.5 text-[#0E5A4A] max-[340px]:p-1 sm:p-2 lg:hidden" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}</button>
       </div>
-      {menuOpen && <div id="mobile-menu" role="navigation" aria-label="Navigasi mobile" className="border-t border-[#D7CDBB] bg-[#F8F4EA] px-5 py-5 lg:hidden">{nav.map((item) => <a key={item} href={`#${item.toLowerCase().replaceAll(" ", "-")}`} onClick={() => setMenuOpen(false)} className="block border-b border-[#E5DDCE] py-3 text-sm font-bold">{item}</a>)}<button className="mt-5 w-full rounded-full bg-[#0E5A4A] py-3 text-sm font-extrabold text-white" onClick={() => wa(heroMessage)}>PESAN VIA WHATSAPP</button></div>}
+      {menuOpen && <div id="mobile-menu" role="navigation" aria-label="Navigasi mobile" className="border-t border-[#D7CDBB] bg-[#F8F4EA] px-5 py-5 lg:hidden">{nav.map((item) => <a key={item} href={`#${item.toLowerCase().replaceAll(" ", "-")}`} onClick={() => setMenuOpen(false)} className={`block border-b border-[#E5DDCE] py-3 text-sm font-bold ${activeNav === item ? "text-[#0E5A4A]" : "text-[#4A665B]"}`}>{item}</a>)}<button className="mt-5 w-full rounded-full bg-[#0E5A4A] py-3 text-sm font-extrabold text-white" onClick={() => wa(heroMessage)}>PESAN VIA WHATSAPP</button></div>}
     </header>
 
     <main>
