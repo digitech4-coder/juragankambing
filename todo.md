@@ -304,4 +304,4 @@
 - [x] Audit seluruh kemunculan “Katering, Aqiqah & Kambing Tangerang Selatan”. Kemunculan user-facing ditemukan pada metadata halaman utama, artifact root, dan fallback 404.
 - [x] Ganti semua kemunculan menjadi “Katering, Aqiqah & Qurban Tangerang Selatan”, termasuk metadata dan artifact statis. Variasi footer dan template internal juga diselaraskan ke Qurban.
 - [x] Verifikasi tidak ada frasa lama tersisa pada file user-facing, lalu jalankan 21 Vitest tests dan build produksi; seluruhnya berhasil.
-- [ ] Simpan checkpoint dan publikasikan perubahan ke domain Manus serta domain custom.
+- [x] Simpan checkpoint dan publikasikan perubahan ke domain Manus serta domain custom. Checkpoint `2552057d` berhasil disimpan dan dipublikasikan.
