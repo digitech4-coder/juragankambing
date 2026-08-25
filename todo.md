@@ -298,3 +298,10 @@
 - [x] Perkuat implementasi sticky header agar tidak bergantung pada perilaku parent layout yang mengganggu. Mengganti `overflow-x-hidden` menjadi `overflow-x-clip` membuat `overflow-y:visible` dan sticky mengikuti viewport.
 - [x] Verifikasi scroll aktual di desktop dan mobile pada kedua domain. Pada Manus dan `juragankambing.id`, marker `viewport` aktif, overflow parent `clip/visible`, dan header tetap `top: 0` setelah `scrollY: 900`.
 - [x] Jalankan TypeScript, Vitest, build produksi, lalu simpan checkpoint perbaikan. TypeScript bersih, 21 Vitest tests lulus, build produksi berhasil, dan checkpoint sinkronisasi tersimpan.
+
+
+## Pembaruan frasa judul layanan
+- [x] Audit seluruh kemunculan “Katering, Aqiqah & Kambing Tangerang Selatan”. Kemunculan user-facing ditemukan pada metadata halaman utama, artifact root, dan fallback 404.
+- [x] Ganti semua kemunculan menjadi “Katering, Aqiqah & Qurban Tangerang Selatan”, termasuk metadata dan artifact statis. Variasi footer dan template internal juga diselaraskan ke Qurban.
+- [x] Verifikasi tidak ada frasa lama tersisa pada file user-facing, lalu jalankan 21 Vitest tests dan build produksi; seluruhnya berhasil.
+- [ ] Simpan checkpoint dan publikasikan perubahan ke domain Manus serta domain custom.
