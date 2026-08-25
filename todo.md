@@ -283,3 +283,11 @@
 - [x] Optimalkan spacing dan ukuran elemen header untuk viewport sekitar 320px.
 - [x] Uji interaksi scroll, responsivitas 320px/360px/1280px, TypeScript, Vitest, dan build produksi. 21 Vitest tests, TypeScript, build produksi, serta capture 320px, 360px, dan 1280px berhasil.
 - [x] Simpan checkpoint setelah seluruh penyempurnaan terverifikasi.
+
+
+## Sinkronisasi penyempurnaan header ke domain live
+- [x] Audit marker shadow dinamis, indikator menu aktif, dan breakpoint 320px pada domain Manus serta domain custom dengan cache-busting. Kedua domain menyajikan marker terbaru.
+- [x] Periksa status checkpoint `fead1abb`, deployment Manus, dan workflow GitHub Pages/root artifact.
+- [x] Sinkronkan publikasi ke kedua domain tanpa mengubah fitur aplikasi lainnya. Verifikasi live menunjukkan kedua domain sudah menggunakan bundle terbaru.
+- [x] Verifikasi fresh response serta tampilan kedua domain setelah deployment selesai. Header shadow aktif pada scroll dan indikator berpindah ke `Paket Favorit` pada section target.
+- [x] Simpan checkpoint sinkronisasi dan dokumentasikan hasilnya.
