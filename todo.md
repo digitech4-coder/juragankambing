@@ -325,4 +325,12 @@
 - [x] Tambahkan tombol WhatsApp mengambang di sudut kanan bawah dengan tautan ke 085211885000. Tombol memakai helper WhatsApp yang mengarah ke nomor 6285211885000.
 - [x] Pastikan label, tooltip, focus state, z-index, dan posisi tidak mengganggu konten pada mobile maupun desktop. Label layanan 24 jam, tooltip, focus ring, `z-[70]`, dan posisi kanan bawah telah diverifikasi.
 - [x] Tambahkan atau perbarui tes untuk tautan WhatsApp dan jalankan TypeScript, Vitest, build, serta verifikasi visual. TypeScript bersih, 21 tes Vitest lulus, build produksi berhasil, dan capture mobile 360px/desktop 1280px menunjukkan tombol.
-- [ ] Simpan checkpoint dan publikasikan perubahan ke domain live.
+- [x] Simpan checkpoint dan publikasikan perubahan ke domain live. Checkpoint `e994cd3e` berhasil disimpan dan dipublikasikan.
+
+
+## Optimasi PageSpeed mobile dan praktik terbaik desktop/mobile
+- [x] Audit ulang konfigurasi build, header cache, asset, font, dan error konsol berdasarkan PageSpeed mobile/desktop. Audit mencakup head, Vite, static serving, Home, CSS, middleware, dan log.
+- [x] Tingkatkan Performa mobile dengan optimasi LCP/FCP, gambar, cache, render-blocking, dan ukuran JavaScript tanpa mengubah komposisi visual utama. Runtime preview/debug dan JSX instrumentation dikeluarkan dari production, admin lazy-loaded, analytics idle-loaded, dan CSS mobile dioptimalkan.
+- [x] Perbaiki Praktik Terbaik mobile/desktop: API usang, error konsol, source map, CSP, HSTS, dan isu keamanan terkait. Header keamanan production, HSTS, cache HTML revalidation, dan regression tests telah diterapkan.
+- [x] Verifikasi responsive mobile/desktop, jalankan tes/build, dan catat hasil pengukuran yang tersedia. 23 Vitest tests lulus, TypeScript bersih, build produksi berhasil, dan HTML production sekitar 3.33 KB.
+- [ ] Sinkronkan artifact ke domain publik, simpan checkpoint, dan dokumentasikan perubahan.

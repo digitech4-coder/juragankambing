@@ -150,7 +150,12 @@ function vitePluginManusDebugCollector(): Plugin {
   };
 }
 
-const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector()];
+const isProductionBuild = process.argv.includes("build");
+const plugins = [
+  react(),
+  tailwindcss(),
+  ...(!isProductionBuild ? [jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector()] : []),
+];
 
 export default defineConfig({
   // Use root paths for the configured custom domain; use the repository subpath only when no CNAME is present.

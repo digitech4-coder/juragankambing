@@ -33,6 +33,24 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <script defer src="%VITE_ANALYTICS_ENDPOINT%/umami" data-website-id="%VITE_ANALYTICS_WEBSITE_ID%"></script>
+    <script>
+      (() => {
+        const loadAnalytics = () => {
+          const endpoint = "%VITE_ANALYTICS_ENDPOINT%";
+          const websiteId = "%VITE_ANALYTICS_WEBSITE_ID%";
+          if (!endpoint || endpoint.includes("%VITE_") || !websiteId || websiteId.includes("%VITE_")) return;
+          const script = document.createElement("script");
+          script.defer = true;
+          script.src = `${endpoint.replace(/\\/$/, "")}/umami`;
+          script.dataset.websiteId = websiteId;
+          document.head.appendChild(script);
+        };
+        if ("requestIdleCallback" in window) {
+          window.requestIdleCallback(loadAnalytics, { timeout: 2500 });
+        } else {
+          window.addEventListener("load", () => window.setTimeout(loadAnalytics, 1200), { once: true });
+        }
+      })();
+    </script>
   </body>
 </html>

@@ -70,6 +70,9 @@ export function serveStatic(app: Express) {
           res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
         } else if (isStaticMedia) {
           res.setHeader("Cache-Control", "public, max-age=2592000, stale-while-revalidate=86400");
+        } else if (/\.html?$/i.test(normalizedPath)) {
+          // HTML contains the current hashed asset references and should revalidate.
+          res.setHeader("Cache-Control", "no-cache, must-revalidate");
         }
       },
     })

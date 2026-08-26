@@ -88,8 +88,10 @@
   @keyframes loadingSweep { 0% { opacity: 1; transform: scaleX(0); } 65% { opacity: 1; transform: scaleX(.82); } 100% { opacity: 0; transform: scaleX(1); } }
   .hero-image { animation: heroFloat 8s ease-in-out infinite; }
   @keyframes heroFloat { 0%,100% { transform: translateY(0) rotate(1deg); } 50% { transform: translateY(-8px) rotate(0deg); } }
+  main > section:not(:first-child) { content-visibility: auto; contain-intrinsic-size: 720px; }
   @media (min-width: 640px) { .container { padding-inline: 1.5rem; } }
   @media (min-width: 1024px) { .container { max-width: 1240px; padding-inline: 2rem; } }
+  @media (max-width: 640px) { .hero-image { animation: none; } }
   @media (prefers-reduced-motion: reduce) { .page-shell, .page-loading-indicator, .hero-image { animation: none !important; } }
   @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
 }
