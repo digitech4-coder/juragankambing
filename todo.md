@@ -334,3 +334,10 @@
 - [x] Perbaiki Praktik Terbaik mobile/desktop: API usang, error konsol, source map, CSP, HSTS, dan isu keamanan terkait. Header keamanan production, HSTS, cache HTML revalidation, dan regression tests telah diterapkan.
 - [x] Verifikasi responsive mobile/desktop, jalankan tes/build, dan catat hasil pengukuran yang tersedia. 23 Vitest tests lulus, TypeScript bersih, build produksi berhasil, dan HTML production sekitar 3.33 KB.
 - [x] Sinkronkan artifact ke domain publik, simpan checkpoint, dan dokumentasikan perubahan. Checkpoint `fabc6ac7` berhasil disimpan dan dipublikasikan.
+
+
+## Perbaikan Invalid regular expression flags
+- [x] Audit browserConsole, source, dan artifact produksi untuk menemukan pola regex atau URL literal yang memicu SyntaxError. Current source/artifact JS valid melalui `node --check`; error tidak muncul pada log terbaru.
+- [x] Perbaiki sumber bug dan pastikan halaman utama serta alur admin tidak lagi gagal parse. Build produksi terbaru tidak membawa malformed regex; halaman utama `/?from_webdev=1` berhasil dimuat tanpa console output.
+- [x] Jalankan TypeScript, Vitest, build produksi, dan verifikasi runtime halaman `/?from_webdev=1`. TypeScript bersih, 23 Vitest tests lulus, build berhasil, dan runtime preview terverifikasi.
+- [ ] Simpan checkpoint setelah perbaikan terverifikasi.
