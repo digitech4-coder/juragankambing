@@ -333,4 +333,4 @@
 - [x] Tingkatkan Performa mobile dengan optimasi LCP/FCP, gambar, cache, render-blocking, dan ukuran JavaScript tanpa mengubah komposisi visual utama. Runtime preview/debug dan JSX instrumentation dikeluarkan dari production, admin lazy-loaded, analytics idle-loaded, dan CSS mobile dioptimalkan.
 - [x] Perbaiki Praktik Terbaik mobile/desktop: API usang, error konsol, source map, CSP, HSTS, dan isu keamanan terkait. Header keamanan production, HSTS, cache HTML revalidation, dan regression tests telah diterapkan.
 - [x] Verifikasi responsive mobile/desktop, jalankan tes/build, dan catat hasil pengukuran yang tersedia. 23 Vitest tests lulus, TypeScript bersih, build produksi berhasil, dan HTML production sekitar 3.33 KB.
-- [ ] Sinkronkan artifact ke domain publik, simpan checkpoint, dan dokumentasikan perubahan.
+- [x] Sinkronkan artifact ke domain publik, simpan checkpoint, dan dokumentasikan perubahan. Checkpoint `fabc6ac7` berhasil disimpan dan dipublikasikan.
