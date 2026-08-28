@@ -355,4 +355,4 @@
 - [x] Terapkan code-splitting untuk jalur admin dan dependensi non-kritis tanpa mengubah homepage publik. Vendor React, data, ikon, dan UI dipisahkan; halaman admin tetap lazy-loaded.
 - [x] Tambahkan regression tests untuk route loading dan jalankan TypeScript, Vitest, serta production build. Regression guard ditambahkan; 26/26 Vitest lulus, TypeScript bersih, dan build berhasil.
 - [x] Verifikasi bundle size, homepage, dashboard admin, dan responsive rendering sebelum checkpoint. Chunk hasil build, homepage desktop/mobile, dan dashboard admin berhasil diverifikasi.
-- [ ] Simpan checkpoint optimasi chunk setelah seluruh validasi selesai.
+- [x] Simpan checkpoint optimasi chunk setelah seluruh validasi selesai. Checkpoint `86a0c0b3` berhasil disimpan dan langsung dipublikasikan.
