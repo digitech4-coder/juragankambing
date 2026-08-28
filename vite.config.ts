@@ -174,6 +174,20 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    // Keep frequently cached framework/data dependencies separate from the
+    // homepage entry so route changes do not invalidate the whole application.
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (!id.includes("node_modules")) return undefined;
+          if (id.includes("react-dom") || id.includes("/react/") || id.includes("scheduler")) return "vendor-react";
+          if (id.includes("@tanstack") || id.includes("@trpc") || id.includes("superjson")) return "vendor-data";
+          if (id.includes("lucide-react")) return "vendor-icons";
+          if (id.includes("sonner") || id.includes("@radix-ui")) return "vendor-ui";
+          return "vendor";
+        },
+      },
+    },
   },
   server: {
     host: true,

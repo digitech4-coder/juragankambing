@@ -349,3 +349,10 @@
 - [x] Perbaiki sumber regresi dan tambahkan regression guard yang sesuai. Regex diperbaiki dan `server/homepage.regression.test.ts` memastikan escape ganda tidak kembali.
 - [x] Jalankan TypeScript, Vitest, build, serta verifikasi halaman utama dan admin. 24/24 Vitest lulus, TypeScript bersih, build produksi berhasil; homepage live Manus dan custom domain berhasil dirender.
 - [x] Simpan checkpoint final setelah runtime bersih terkonfirmasi. Checkpoint `bebeedcc` berhasil disimpan dan langsung dipublikasikan.
+
+## Optimasi chunk JavaScript
+- [x] Audit ukuran chunk production dan dependensi yang masuk ke entry bundle. Entry JavaScript turun dari sekitar 735 KB menjadi sekitar 115 KB; vendor dipisahkan ke chunk cacheable.
+- [x] Terapkan code-splitting untuk jalur admin dan dependensi non-kritis tanpa mengubah homepage publik. Vendor React, data, ikon, dan UI dipisahkan; halaman admin tetap lazy-loaded.
+- [x] Tambahkan regression tests untuk route loading dan jalankan TypeScript, Vitest, serta production build. Regression guard ditambahkan; 26/26 Vitest lulus, TypeScript bersih, dan build berhasil.
+- [x] Verifikasi bundle size, homepage, dashboard admin, dan responsive rendering sebelum checkpoint. Chunk hasil build, homepage desktop/mobile, dan dashboard admin berhasil diverifikasi.
+- [ ] Simpan checkpoint optimasi chunk setelah seluruh validasi selesai.
