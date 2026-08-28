@@ -340,4 +340,12 @@
 - [x] Audit browserConsole, source, dan artifact produksi untuk menemukan pola regex atau URL literal yang memicu SyntaxError. Current source/artifact JS valid melalui `node --check`; error tidak muncul pada log terbaru.
 - [x] Perbaiki sumber bug dan pastikan halaman utama serta alur admin tidak lagi gagal parse. Build produksi terbaru tidak membawa malformed regex; halaman utama `/?from_webdev=1` berhasil dimuat tanpa console output.
 - [x] Jalankan TypeScript, Vitest, build produksi, dan verifikasi runtime halaman `/?from_webdev=1`. TypeScript bersih, 23 Vitest tests lulus, build berhasil, dan runtime preview terverifikasi.
-- [ ] Simpan checkpoint setelah perbaikan terverifikasi.
+- [x] Simpan checkpoint setelah perbaikan terverifikasi. Checkpoint `aab935fe` berhasil disimpan dan dipublikasikan.
+
+
+## Perbaikan regresi Invalid regular expression flags terbaru
+- [x] Bandingkan runtime live/preview terbaru pada `/?from_webdev=1` dengan sesi admin aktif dan cache-busting. Preview dan Manus live berhasil merender homepage; custom domain tanpa parameter WebDev juga berhasil merender tanpa overlay.
+- [x] Temukan artifact, runtime preview, atau pola URL/regex yang masih memicu SyntaxError. Akar masalah ditemukan pada regex inline analytics di `client/index.html`: `/\\/$/` menghasilkan escape ganda setelah deployment, sedangkan bentuk validnya `/\/$/`.
+- [x] Perbaiki sumber regresi dan tambahkan regression guard yang sesuai. Regex diperbaiki dan `server/homepage.regression.test.ts` memastikan escape ganda tidak kembali.
+- [x] Jalankan TypeScript, Vitest, build, serta verifikasi halaman utama dan admin. 24/24 Vitest lulus, TypeScript bersih, build produksi berhasil; homepage live Manus dan custom domain berhasil dirender.
+- [ ] Simpan checkpoint final setelah runtime bersih terkonfirmasi.

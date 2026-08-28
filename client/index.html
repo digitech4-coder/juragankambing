@@ -41,7 +41,7 @@
           if (!endpoint || endpoint.includes("%VITE_") || !websiteId || websiteId.includes("%VITE_")) return;
           const script = document.createElement("script");
           script.defer = true;
-          script.src = `${endpoint.replace(/\\/$/, "")}/umami`;
+          script.src = `${endpoint.replace(/\/$/, "")}/umami`;
           script.dataset.websiteId = websiteId;
           document.head.appendChild(script);
         };
