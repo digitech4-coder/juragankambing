@@ -348,4 +348,4 @@
 - [x] Temukan artifact, runtime preview, atau pola URL/regex yang masih memicu SyntaxError. Akar masalah ditemukan pada regex inline analytics di `client/index.html`: `/\\/$/` menghasilkan escape ganda setelah deployment, sedangkan bentuk validnya `/\/$/`.
 - [x] Perbaiki sumber regresi dan tambahkan regression guard yang sesuai. Regex diperbaiki dan `server/homepage.regression.test.ts` memastikan escape ganda tidak kembali.
 - [x] Jalankan TypeScript, Vitest, build, serta verifikasi halaman utama dan admin. 24/24 Vitest lulus, TypeScript bersih, build produksi berhasil; homepage live Manus dan custom domain berhasil dirender.
-- [ ] Simpan checkpoint final setelah runtime bersih terkonfirmasi.
+- [x] Simpan checkpoint final setelah runtime bersih terkonfirmasi. Checkpoint `bebeedcc` berhasil disimpan dan langsung dipublikasikan.
