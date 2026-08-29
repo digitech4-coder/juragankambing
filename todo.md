@@ -363,3 +363,11 @@
 - [x] Tambahkan regression tests untuk URL/preload hero dan jalankan TypeScript, Vitest, serta production build. 27/27 Vitest lulus, TypeScript bersih, dan build berhasil.
 - [x] Verifikasi hero pada desktop/mobile dan validasi jalur LCP sebelum checkpoint. Endpoint hero berstatus 200; preview desktop dan mobile merender hero WebP dengan preload responsive.
 - [x] Simpan checkpoint perbaikan hero setelah seluruh validasi selesai. Checkpoint `1bfb03e9` berhasil disimpan dan langsung dipublikasikan.
+
+## Logo header preview dan skeleton hero
+- [x] Audit URL, format, dan respons logo header pada preview serta domain publik. Storage logo lama merespons 403; asset custom domain merespons 200.
+- [x] Perbaiki fallback logo header agar tidak menampilkan broken image pada preview. Logo WebP baru 512px/29 KB diunggah ke storage dan fallback custom domain ditambahkan.
+- [x] Tambahkan skeleton loading hero image dengan status aksesibel dan tanpa perubahan layout. Overlay shimmer memakai `aria-hidden`, wrapper memakai `aria-busy`, dan ukuran hero tetap dicadangkan.
+- [x] Tambahkan regression tests, jalankan TypeScript, Vitest, serta production build. 29/29 Vitest lulus, TypeScript bersih, dan build production berhasil.
+- [x] Verifikasi visual desktop/mobile dan runtime preview sebelum checkpoint. Logo tampil normal dan hero ter-render pada viewport 1280px serta 360px.
+- [x] Simpan checkpoint perbaikan logo dan skeleton setelah seluruh validasi selesai.
