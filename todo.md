@@ -379,3 +379,10 @@
 - [x] Tambahkan regression tests, jalankan TypeScript, Vitest, dan production build. 30/30 Vitest lulus, TypeScript bersih, dan production build berhasil.
 - [x] Verifikasi footer, favicon, dan responsive rendering sebelum checkpoint. Footer terverifikasi pada 1280px dan 360px; markup favicon WebP host-aware terverifikasi di hasil build.
 - [x] Simpan checkpoint optimasi aset logo setelah seluruh validasi selesai.
+
+## Pemulihan halaman kosong Manus
+- [x] Audit respons live Manus, console runtime, dan asset entry setelah checkpoint logo/favicon. HTML serta asset entry live berstatus 200, tetapi root React kosong.
+- [x] Identifikasi regresi yang membuat homepage Manus tidak merender. Dynamic import live menangkap `TypeError: Cannot set properties of undefined (setting 'Activity')` pada pasangan vendor React/renderer yang tercampur oleh cache artifact lama.
+- [x] Perbaiki sumber halaman kosong dan tambahkan regression guard jika diperlukan. Nama seluruh vendor chunk diberi suffix `-v2` untuk memaksa pasangan bundle baru dan mencegah cache collision; guard chunking diperbarui.
+- [x] Jalankan test, TypeScript, production build, serta verifikasi homepage dan admin. 30/30 Vitest lulus, TypeScript bersih, build menghasilkan vendor-v2 baru, dan homepage preview merender normal.
+- [x] Simpan checkpoint pemulihan Manus setelah seluruh validasi selesai.

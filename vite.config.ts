@@ -180,11 +180,11 @@ export default defineConfig({
       output: {
         manualChunks(id) {
           if (!id.includes("node_modules")) return undefined;
-          if (id.includes("react-dom") || id.includes("/react/") || id.includes("scheduler")) return "vendor-react";
-          if (id.includes("@tanstack") || id.includes("@trpc") || id.includes("superjson")) return "vendor-data";
-          if (id.includes("lucide-react")) return "vendor-icons";
-          if (id.includes("sonner") || id.includes("@radix-ui")) return "vendor-ui";
-          return "vendor";
+          if (id.includes("react-dom") || id.includes("/react/") || id.includes("scheduler")) return "vendor-react-v2";
+          if (id.includes("@tanstack") || id.includes("@trpc") || id.includes("superjson")) return "vendor-data-v2";
+          if (id.includes("lucide-react")) return "vendor-icons-v2";
+          if (id.includes("sonner") || id.includes("@radix-ui")) return "vendor-ui-v2";
+          return "vendor-v2";
         },
       },
     },

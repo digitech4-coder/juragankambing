@@ -9,9 +9,9 @@ const appSource = fs.readFileSync(path.join(projectRoot, "client/src/App.tsx"), 
 describe("production chunking guards", () => {
   it("keeps vendor dependencies in stable cacheable chunks", () => {
     expect(viteConfig).toContain("manualChunks(id)");
-    expect(viteConfig).toContain('return "vendor-react"');
-    expect(viteConfig).toContain('return "vendor-data"');
-    expect(viteConfig).toContain('return "vendor-icons"');
+    expect(viteConfig).toContain('return "vendor-react-v2"');
+    expect(viteConfig).toContain('return "vendor-data-v2"');
+    expect(viteConfig).toContain('return "vendor-icons-v2"');
   });
 
   it("keeps admin-only pages out of the homepage entry", () => {
