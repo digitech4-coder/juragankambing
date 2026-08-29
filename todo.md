@@ -371,3 +371,11 @@
 - [x] Tambahkan regression tests, jalankan TypeScript, Vitest, serta production build. 29/29 Vitest lulus, TypeScript bersih, dan build production berhasil.
 - [x] Verifikasi visual desktop/mobile dan runtime preview sebelum checkpoint. Logo tampil normal dan hero ter-render pada viewport 1280px serta 360px.
 - [x] Simpan checkpoint perbaikan logo dan skeleton setelah seluruh validasi selesai.
+
+## Optimasi logo footer dan favicon
+- [x] Audit referensi, format, dimensi, dan ukuran logo footer serta favicon. Footer memakai asset mark bersama; favicon custom-domain sebelumnya memakai WebP tetapi jalur Manus belum host-aware.
+- [x] Konversi logo footer dan favicon ke WebP transparan yang konsisten dengan header. Asset WebP mark 512px/29 KB digunakan untuk footer dan Manus favicon.
+- [x] Perbarui referensi HTML/React dan fallback tanpa mengubah tampilan brand. Footer memakai mark WebP dengan fallback custom domain; favicon memilih jalur host-aware.
+- [x] Tambahkan regression tests, jalankan TypeScript, Vitest, dan production build. 30/30 Vitest lulus, TypeScript bersih, dan production build berhasil.
+- [x] Verifikasi footer, favicon, dan responsive rendering sebelum checkpoint. Footer terverifikasi pada 1280px dan 360px; markup favicon WebP host-aware terverifikasi di hasil build.
+- [x] Simpan checkpoint optimasi aset logo setelah seluruh validasi selesai.
