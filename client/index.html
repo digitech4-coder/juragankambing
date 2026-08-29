@@ -17,7 +17,7 @@
         const isManus = location.hostname.endsWith('.manus.space') || location.hostname.endsWith('.manus.computer') || location.hostname === 'localhost';
         const root = isManus ? '/manus-storage/' : '%BASE_URL%image/';
         const mobile = `${root}${isManus ? 'juragankambing-hero-mobile_9dea06c1.webp' : 'juragankambing-hero-mobile.webp'}`;
-        const desktop = `${root}${isManus ? 'juragankambing-hero_bd742d57.jpg' : 'juragankambing-hero.webp'}`;
+        const desktop = `${root}${isManus ? 'juragankambing-hero-manus-optimized_cedec82a.webp' : 'juragankambing-hero.webp'}`;
         const preload = document.createElement('link');
         preload.rel = 'preload';
         preload.as = 'image';
