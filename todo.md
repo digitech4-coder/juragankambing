@@ -362,4 +362,4 @@
 - [x] Perbaiki jalur pemuatan hero agar stabil lintas Manus dan custom domain tanpa mengubah komposisi. Hero Manus diganti WebP 185 KB, preload diselaraskan, dan fallback satu kali ditambahkan.
 - [x] Tambahkan regression tests untuk URL/preload hero dan jalankan TypeScript, Vitest, serta production build. 27/27 Vitest lulus, TypeScript bersih, dan build berhasil.
 - [x] Verifikasi hero pada desktop/mobile dan validasi jalur LCP sebelum checkpoint. Endpoint hero berstatus 200; preview desktop dan mobile merender hero WebP dengan preload responsive.
-- [ ] Simpan checkpoint perbaikan hero setelah seluruh validasi selesai.
+- [x] Simpan checkpoint perbaikan hero setelah seluruh validasi selesai. Checkpoint `1bfb03e9` berhasil disimpan dan langsung dipublikasikan.
